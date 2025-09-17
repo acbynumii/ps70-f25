@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../styles.css">
+
+    <title>PS70: Week 2</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="left">
+            <a href="/">PS70 Fall 2025</a>
+        </div>
+        <div class="right">
+            <a href="../index.html">About Me</a>
+            <a href="../final-project.html">Final Project</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Section 1: Slideshow and Box Explanation -->
+        <section>
+            <h1>Fusion Box Project</h1>
+            <div class="slideshow-container">
+                <img class="slide active" src="../images/Box_view1.webp" alt="Box Photo 1">
+                <img class="slide" src="../images/Box_view2.webp" alt="Box Photo 2">
+                <div class="slideshow-controls">
+                    <button onclick="plusSlides(-1)">&#10094; Prev</button>
+                    <button onclick="plusSlides(1)">Next &#10095;</button>
+                </div>
+            </div>
+            <div>
+                <h2>About My Box</h2>
+                <p>
+                    <!-- Write your explanation about the box you made in Fusion 360 here. -->
+                    I designed this box in Fusion 360 to practice parametric modeling and assembly. The box features interlocking joints and a removable lid, and I experimented with different constraints and fillets to ensure a snug fit. The slideshow above shows two different views of the finished model.
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Section 2: Two Parts, Four Photos, and Documentation -->
+        <section>
+            <h1>Fusion Parts Documentation</h1>
+            <div class="fusion-part">
+                <h2>Part 1: [Name of Part 1]</h2>
+                <div class="fusion-photos">
+                    <img src="../images/part1a.webp" alt="Part 1 - View 1">
+                    <img src="../images/part1b.webp" alt="Part 1 - View 2">
+                </div>
+                <p>
+                    <!-- Write about Part 1 here -->
+                    This part was modeled to demonstrate [describe features, challenges, or learning outcomes].
+                </p>
+            </div>
+            <div class="fusion-part">
+                <h2>Part 2: [Name of Part 2]</h2>
+                <div class="fusion-photos">
+                    <img src="../images/part2a.webp" alt="Part 2 - View 1">
+                    <img src="../images/part2b.webp" alt="Part 2 - View 2">
+                </div>
+                <p>
+                    <!-- Write about Part 2 here -->
+                    For this part, I focused on [describe features, challenges, or learning outcomes].
+                </p>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Simple slideshow script
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        function showSlide(n) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === n);
+            });
+        }
+        function plusSlides(n) {
+            slideIndex = (slideIndex + n + slides.length) % slides.length;
+            showSlide(slideIndex);
+        }
+        // Initialize
+        showSlide(slideIndex);
+    </script>
+</body>
+</html>
