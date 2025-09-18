@@ -1,12 +1,136 @@
-.photo-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns */
-  gap: 10px;
-  margin-bottom: 20px;
+:root {
+    --text-color: #F8F8FF;
+    --link-color: #F8F8FF;
+    --background-color: #262626;
+    --aux-color: #1E90FF;
 }
-.photo-grid img {
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'EB Garamond', serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+/* --- NAVIGATION BAR --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    height: 80px;
+}
+
+nav .left a {
+    color: var(--text-color);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav .right a {
+    color: var(--text-color);
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+/*-- --- Gallery CSS--- --*/
+.gallery-center {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 4 / 3; /* or 1/1 for square */
   object-fit: cover;
-  border-radius: 6px;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+  max-width: 300px;  /* ✅ keeps each item reasonable */
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* --- HERO --- */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    margin: 50px 0;
+    gap: 100px;
+}
+
+.hero-section .text {
+    flex: 5;
+}
+
+.hero-section .text h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+/* --- DIVIDER --- */
+.divider {
+  height: 0.5px;
+  background-color: white;
+  width: 95%;   /* control width */
+  margin: 75px auto; /* center it */
+}
+
+a:hover {
+    color: #1E90FF; /* Dodger Blue */
 }

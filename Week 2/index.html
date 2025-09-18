@@ -7,14 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
 
-    <link rel="stylesheet" href="../styles.css">
-
-    <title>PS70: Week 1</title>
+    <title>PS70: Week 2</title>
 </head>
 <body>
     <!-- NAVBAR -->
@@ -24,36 +20,93 @@
         </div>
         <div class="right">
             <a href="/index.html">About Me</a>
-            <a href="./final-project.html">Final Project</a>
+            <a href="../final-project.html">Final Project</a>
         </div>
     </nav>
 
-<div class="container">
-
-  <!-- Section 1: Fusion Box (2x2 grid) -->
-  <section>
-    <h2>Fusion Box Project</h2>
-    <div class="photo-grid">
-      <img src="./images/Box_view1.webp" alt="Box 1">
-      <img src="./images/Box_view2.webp" alt="Box 2">
-      <img src="./images/Carboard_box1.webp" alt="Box 3">
-      <img src="./images/Carboard_box2.webp" alt="Box 4">
+    <!-- MAIN CONTENT -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>1. Box Design</h1>
+            <p>For the design of the box, I used Fusion. Fusion is straightforward to use, and this process was made simple through parameterizing the finger joints (see this <a href="https://www.youtube.com/watch?v=9U2JPfkQpsE">video</a>). After completing the design, I exported the sketches and faces in DXF format to prepare it for further processing in Rhino. Next, the method of fabrication was laser-cutting, and I incorporated scoring, cutting, and rastering in the process. After the laser cutter was done, I hot glued the pieces together to make the result below.</p>
+    </section>
+    <div class="gallery-center">
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/Box_view1.webp">
+                    <img src="../images/Box_view1.webp" alt="Fusion Box View 1">
+                </a>
+                <div class="desc">View 1 of The Chapel Box in Fusion</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/Box_view2.webp">
+                    <img src="../images/Box_view2.webp" alt="Fusion Box View 1">
+                </a>
+                <div class="desc">View 2 of The Chapel Box in Fusion</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/Carboard_box1.webp">
+                    <img src="../images/Carboard_box1.webp" alt="Physical Box View 1">
+                </a>
+                <div class="desc">View 1 of physical The Chapel Box</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/Carboard_box2.webp">
+                    <img src="../images/Carboard_box2.webp" alt="Physical Box View 2">
+                </a>
+                <div class="desc">View 2 of physical The Chapel Box</div>
+            </div>
+        </div>
     </div>
-    <p>Write your explanation of your Fusion box here.</p>
-  </section>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
 
-  <hr>
-
-  <!-- Section 2: Modeled Parts (2x2 grid) -->
-  <section>
-    <h2>Modeled Parts in Fusion</h2>
-    <div class="photo-grid">
-      <img src="images/marker1.webp" alt="Part 1">
-      <img src="images/marker2.webp" alt="Part 2">
-      <img src="images/cologne1.webp" alt="Part 3">
-      <img src="images/cologne2.webp" alt="Part 4">
+    <!-- MAIN CONTENT 2-->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>2. Household Items</h1>
+            <p>The process for designing these was fairly simple. First, you measure the dimensions of each object. For the cologne, it was a lot more challenging just because there was a lot of curves involved, but for the Expo marker, I used a lot of arcs and angles as well as the revolve feature. As for the cologne, there was a lot of cut features used in addition to the project function. Lastly, I made separate components for each assembly: the top for the expo marker and the top for the cologne. Constraining them included making the cylindrical holes in each piece concentric. For the cologne, I also had to align the faces such that top was facing the correct direction.</p>
+    </section>
+    <div class="gallery-center">
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/cologne1.webp">
+                    <img src="../images/cologne1.webp" alt="Cologne View 1">
+                </a>
+                <div class="desc">View 1 of the cologne</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/cologne2.webp">
+                    <img src="../images/cologne2.webp" alt="Cologne View 2">
+                </a>
+                <div class="desc">View 2 of the Cologne</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/marker1.webp">
+                    <img src="../images/marker1.webp" alt="Marker View 1">
+                </a>
+                <div class="desc">View 1 of Expo Marker</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/marker2.webp">
+                    <img src="../images/marker2.webp" alt="Marker View 2">
+                </a>
+                <div class="desc">View 2 of Expo Marker</div>
+            </div>
+        </div>
     </div>
-    <p>Write about each assignment piece here.</p>
-  </section>
-
-</div>
+    <div class="clearfix"></div>
+</body>
+</html>
