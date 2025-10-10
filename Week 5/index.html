@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+
+    <title>PS70: Week 5</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="left">
+            <a href="/">PS70 Fall 2025</a>
+        </div>
+        <div class="right">
+            <a href="/index.html">About Me</a>
+            <a href="../final-project.html">Final Project</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>3D Design, Printing, and Scanning</h1>
+            <p>This week explored the complete 3D workflow from digital design to physical fabrication. I designed custom parts using Fusion 360, prepared them for 3D printing, and learned about 3D scanning techniques. The project involved creating functional components, optimizing print settings, and understanding the capabilities and limitations of additive manufacturing technologies.</p>
+        </div>
+    </section>
+
+    <!-- 3D DESIGN AND PRINTING -->
+    <div class="gallery-center">
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week5_design1.jpg">
+                    <img src="../images/week5_design1.jpg" alt="3D Design View 1">
+                </a>
+                <div class="desc">Fusion 360 Design View 1</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week5_design2.jpg">
+                    <img src="../images/week5_design2.jpg" alt="3D Design View 2">
+                </a>
+                <div class="desc">Fusion 360 Design View 2</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week5_print1.jpg">
+                    <img src="../images/week5_print1.jpg" alt="3D Print Process">
+                </a>
+                <div class="desc">3D Printing Process</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week5_final.jpg">
+                    <img src="../images/week5_final.jpg" alt="Final 3D Print">
+                </a>
+                <div class="desc">Final 3D Printed Part</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- FUSION STL VIEWER -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Interactive 3D Model</h1>
+            <p>Below is an interactive 3D model of the designed part, embedded using Fusion 360's STL viewer. You can rotate, zoom, and explore the model to see the design details from all angles.</p>
+        </div>
+    </section>
+
+    <div class="stl-viewer-container">
+        <iframe src="https://college833.autodesk360.com/shares/public/SH90d2dQT28d5b602811000e03ef131c898d?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0"></iframe>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 3D SCANNING -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>3D Scanning with RevoScan</h1>
+            <p>I used RevoScan to create a 3D scan of an object, converting physical geometry into digital data. The scanning process involved capturing multiple images from different angles and processing them into a 3D model. Below is the resulting .obj file viewer showing the scanned object.</p>
+        </div>
+    </section>
+
+    <div class="gallery-center">
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week5_scan_setup.jpg">
+                    <img src="../images/week5_scan_setup.jpg" alt="Scanning Setup">
+                </a>
+                <div class="desc">RevoScan Setup</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week5_scan_process.jpg">
+                    <img src="../images/week5_scan_process.jpg" alt="Scanning Process">
+                </a>
+                <div class="desc">Scanning Process</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="obj-viewer-container">
+        <iframe src="../models/scanned_object.html" width="640" height="480" frameborder="0"></iframe>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- FINAL PROJECT TEMPLATE -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Final Project Development</h1>
+            <p>This section outlines the development of my final project, including the finalized 3D model, bill of materials, and project timeline. The project represents the culmination of skills learned throughout the course.</p>
+        </div>
+    </section>
+
+    <div class="project-template">
+        <h2>Project Overview</h2>
+        <p><strong>Project Name:</strong> Interactive Smart Display System</p>
+        <p><strong>Description:</strong> A customizable digital display system that responds to user interactions and environmental conditions. The system combines microcontroller programming, 3D printed housing, and sensor integration to create an engaging user experience.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li>Touch-sensitive display interface</li>
+            <li>Environmental sensor integration (temperature, humidity, light)</li>
+            <li>Wireless connectivity for remote control</li>
+            <li>Modular design for easy customization</li>
+            <li>3D printed custom housing</li>
+        </ul>
+
+        <h3>Technical Specifications</h3>
+        <ul>
+            <li>Microcontroller: ESP32 with WiFi capability</li>
+            <li>Display: 7-inch capacitive touchscreen</li>
+            <li>Power: Rechargeable battery with solar panel option</li>
+            <li>Materials: PLA/ABS 3D printed components</li>
+            <li>Connectivity: WiFi, Bluetooth, USB-C</li>
+        </ul>
+    </div>
+
+    <!-- FINALIZED 3D MODEL -->
+    <div class="stl-viewer-container">
+        <iframe src="https://college833.autodesk360.com/shares/public/SH90d2dQT28d5b602811000e03ef131c898d?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0"></iframe>
+    </div>
+
+    <!-- BILL OF MATERIALS -->
+    <div class="project-template">
+        <h2>Bill of Materials</h2>
+        <table class="bom-table">
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total Price</th>
+                    <th>Supplier</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ESP32 Development Board</td>
+                    <td>1</td>
+                    <td>$15.00</td>
+                    <td>$15.00</td>
+                    <td>Adafruit</td>
+                </tr>
+                <tr>
+                    <td>7" Touchscreen Display</td>
+                    <td>1</td>
+                    <td>$45.00</td>
+                    <td>$45.00</td>
+                    <td>Amazon</td>
+                </tr>
+                <tr>
+                    <td>Temperature Sensor (DHT22)</td>
+                    <td>1</td>
+                    <td>$8.00</td>
+                    <td>$8.00</td>
+                    <td>SparkFun</td>
+                </tr>
+                <tr>
+                    <td>Light Sensor (LDR)</td>
+                    <td>2</td>
+                    <td>$2.00</td>
+                    <td>$4.00</td>
+                    <td>DigiKey</td>
+                </tr>
+                <tr>
+                    <td>Rechargeable Battery Pack</td>
+                    <td>1</td>
+                    <td>$25.00</td>
+                    <td>$25.00</td>
+                    <td>Adafruit</td>
+                </tr>
+                <tr>
+                    <td>3D Printing Filament (PLA)</td>
+                    <td>1kg</td>
+                    <td>$20.00</td>
+                    <td>$20.00</td>
+                    <td>Local Supplier</td>
+                </tr>
+                <tr>
+                    <td>Miscellaneous Components</td>
+                    <td>1</td>
+                    <td>$15.00</td>
+                    <td>$15.00</td>
+                    <td>Various</td>
+                </tr>
+                <tr>
+                    <td><strong>Total Project Cost</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td><strong>$132.00</strong></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PROJECT TIMELINE -->
+    <div class="timeline">
+        <h2>Project Timeline</h2>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">Week 1-2</div>
+            <div class="timeline-content">
+                <h3>Research and Planning</h3>
+                <p>Conduct research on display technologies, define project requirements, and create initial design concepts.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">Week 3-4</div>
+            <div class="timeline-content">
+                <h3>Hardware Design</h3>
+                <p>Design circuit schematics, select components, and create 3D models for the housing and mounting system.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">Week 5-6</div>
+            <div class="timeline-content">
+                <h3>Software Development</h3>
+                <p>Develop microcontroller firmware, create user interface, and implement sensor integration and wireless connectivity.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">Week 7-8</div>
+            <div class="timeline-content">
+                <h3>Prototyping and Testing</h3>
+                <p>3D print components, assemble prototype, conduct testing, and iterate on design based on results.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">Week 9-10</div>
+            <div class="timeline-content">
+                <h3>Final Assembly and Documentation</h3>
+                <p>Complete final assembly, perform comprehensive testing, and create documentation and presentation materials.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PROJECT GALLERY -->
+    <div class="gallery-center">
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/final_project_concept.jpg">
+                    <img src="../images/final_project_concept.jpg" alt="Project Concept">
+                </a>
+                <div class="desc">Initial Concept Sketch</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/final_project_prototype.jpg">
+                    <img src="../images/final_project_prototype.jpg" alt="Working Prototype">
+                </a>
+                <div class="desc">Working Prototype</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/final_project_assembly.jpg">
+                    <img src="../images/final_project_assembly.jpg" alt="Assembly Process">
+                </a>
+                <div class="desc">Assembly Process</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/final_project_final.jpg">
+                    <img src="../images/final_project_final.jpg" alt="Final Project">
+                </a>
+                <div class="desc">Final Completed Project</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</body>
+</html>
