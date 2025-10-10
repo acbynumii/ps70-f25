@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <title>PS70: Week 4 - Microcontroller Programming</title>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="left">
+      <a href="/">PS70 Fall 2025</a>
+    </div>
+    <div class="right">
+      <a href="/index.html">About Me</a>
+      <a href="../final-project.html">Final Project</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero-section">
+      <div class="text">
+        <h1>Week 4: Microcontroller Programming</h1>
+        <p>This week I programmed a microcontroller to read sensors and drive actuators. Below are a short demo video, the circuit schematic, and representative code snippets used in my build.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="video">
+      <h2>Project Video</h2>
+      <p>Quick demo of the system in action.</p>
+      <div class="media-frame">
+        <video controls preload="metadata">
+          <source src="../images/week4_demo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <p><em>Tip:</em> Replace the video source with your actual file at <code>images/week4_demo.mp4</code>.</p>
+    </section>
+
+    <section class="content-section" id="schematic">
+      <h2>Circuit Schematic</h2>
+      <p>High-level wiring diagram showing power, microcontroller pins, and peripherals.</p>
+      <figure>
+        <img src="../images/week4_schematic.webp" alt="Week 4 circuit schematic" />
+        <figcaption>System schematic. Update the image when your final wiring is done.</figcaption>
+      </figure>
+    </section>
+
+    <section class="content-section" id="code">
+      <h2>Code Snippets</h2>
+      <p>Key parts of my firmware: reading a sensor, smoothing the signal, and driving a servo and LED.</p>
+      <pre><code class="language-cpp">#include &lt;Servo.h&gt;
+
+Servo positionServo;
+constexpr int servoPin = 5;
+constexpr int sensorPin = A0;
+constexpr int ledPin = 9;
+
+// Simple moving average filter
+constexpr int windowSize = 10;
+int samples[windowSize];
+int indexInWindow = 0;
+long runningTotal = 0;
+
+void addSample(int value) {
+  runningTotal -= samples[indexInWindow];
+  samples[indexInWindow] = value;
+  runningTotal += value;
+  indexInWindow = (indexInWindow + 1) % windowSize;
+}
+
+int getAverage() {
+  return runningTotal / windowSize;
+}
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(ledPin, OUTPUT);
+  positionServo.attach(servoPin);
+  for (int i = 0; i &lt; windowSize; i++) { samples[i] = 0; }
+}
+
+void loop() {
+  int raw = analogRead(sensorPin);
+  addSample(raw);
+  int filtered = getAverage();
+
+  int angle = map(filtered, 0, 1023, 0, 180);
+  positionServo.write(angle);
+
+  analogWrite(ledPin, filtered / 4); // 0-255
+
+  Serial.print("raw:"); Serial.print(raw);
+  Serial.print("\tavg:"); Serial.println(filtered);
+
+  delay(20);
+}
+</code></pre>
+      <p><em>Note:</em> Replace with your full sketch if desired; this is an example structure.</p>
+    </section>
+  </main>
+</body>
+</html>
