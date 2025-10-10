@@ -71,7 +71,7 @@ div.gallery img {
 
 div.gallery video {
   width: 100%;
-  aspect-ratio: 4 / 3; /* or 1/1 for square */
+  aspect-ratio: 3 / 4; /* or 1/1 for square */
   object-fit: cover;
   border-radius: 0; /* match image style if needed */
 }
@@ -148,7 +148,9 @@ a:hover {
     border: 1px solid #333;
     border-radius: 8px;
     padding: 20px;
-    margin: 20px 0;
+    margin: 20px auto;
+    max-width: 1100px;
+    width: 100%;
     font-family: 'Courier New', monospace;
     font-size: 14px;
     overflow-x: auto;
@@ -163,7 +165,10 @@ a:hover {
 .schematic-container {
     display: flex;
     justify-content: center;
-    margin: 30px 0;
+    margin: 30px auto;
+    max-width: 800px;
+    width: 90%;
+    padding: 20px;
 }
 
 .schematic-container img {
