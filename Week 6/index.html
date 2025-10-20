@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+
+    <title>PS70: Week 6</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="left">
+            <a href="../index.html">PS70 Fall 2025</a>
+        </div>
+        <div class="right">
+            <a href="../index.html">About Me</a>
+            <a href="../final-project.html">Final Project</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Input Devices</h1>
+            <p>This week focused on implementing input devices to measure physical quantities. For my project, I decided to integrate hall effect sensors with stepper motors for precise control. The project emphasized avoiding blocking functions like delay() in favor of timer-based approaches for more responsive and efficient microcontroller programming. I created a capacitive sensor system and configured a hall sensor with a stepper motor that stops and reverses direction when reaching a minimum threshold. The purpose of this is to eventually develop it into a homing system for my final project.</p>
+        </div>
+    </section>
+
+    <!-- INPUT DEVICES PROJECT -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Hall Sensor + Stepper Motor = Homing System</h1>
+            <p>I developed both capacitive sensor systems and hall effect sensor integration with stepper motors. The capacitive sensor measures proximity and touch interactions without physical contact, while the hall sensor provides precise position control for the stepper motor. Both implementations use timer-based interrupts to avoid blocking the main program loop, ensuring responsive operation. The hall sensor automatically stops and reverses the stepper motor direction when detecting a magnetic field below a minimum threshold, creating a reliable homing system for my final project.</p>
+        </div>
+    </section>
+
+    <!-- PHOTOS GALLERY -->
+    <div class="gallery-center">
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week6_fusion.webp">
+                    <img src="../images/week6_fusion.webp" alt="Sensor Breadboard Setup">
+                </a>
+                <div class="desc">Sensor Setup in Fusion</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week6_wiring.webp">
+                    <img src="../images/week6_wiring.webp" alt="Hall Sensor Setup">
+                </a>
+                <div class="desc">Hall Sensor and Stepper Motor Wiring</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week6_schematic.webp">
+                    <img src="../images/week6_schematic.webp" alt="CAD Design View">
+                </a>
+                <div class="desc">Schematic Diagram</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <!-- VIDEOS GALLERY -->
+    <div class="gallery-center" style="margin-top: 60px;">
+        <div class="responsive" style="width: 37.5%; max-width: 300px;">
+            <div class="gallery">
+                <a target="_blank" href="../images/week6_demo_pt1.mp4">
+                    <video controls>
+                        <source src="../images/week6_demo_pt1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </a>
+                <div class="desc">Sensor and Stepper Motor Demo (Part 1)</div>
+            </div>
+        </div>
+        <div class="responsive" style="width: 37.5%; max-width: 300px;">
+            <div class="gallery">
+                <a target="_blank" href="../images/week6_demo_pt2.mp4">
+                    <video controls>
+                        <source src="../images/week6_demo_pt2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </a>
+                <div class="desc">Sensor and Stepper Motor Demo (Part 2)</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- ARDUINO CODE -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Arduino Code Implementation</h1>
+            <p>Below is the complete Arduino code that implements both the capacitive sensor and hall sensor with stepper motor control. The code uses timer-based interrupts and avoids the delay() function for responsive operation.</p>
+        </div>
+    </section>
+
+    <div class="code-block">
+        <div class="code-title">Capacitive Sensor and Hall Sensor Code</div>
+        <pre><code>// --- Libraries ---                          
+#include <Arduino.h>                           // Core Arduino functions
+
+// --- Pin Assignments ---                     
+#define HALL_PIN 34                            // Analog input pin for Hall sensor
+#define STEP_PIN 12                            // Digital output pin for step signal
+#define DIR_PIN 14                             // Digital output pin for direction
+
+// --- Constants ---                           
+const int MIN_THRESHOLD = 0;                   // Threshold to detect magnet alignment
+const unsigned long STEP_DELAY = 10;           // Time between steps in ms (non-blocking cadence)
+const unsigned long PAUSE_DURATION = 2000;     // Pause duration in ms when aligned
+
+// --- StepperMotorController Class ---       
+class StepperMotorController {                  // Begin class definition
+private:                                        // Private: internal details hidden from users
+    // Pin assignments                            
+    int hallPin;                                  // Saved Hall sensor pin
+    int stepPin;                                  // Saved step pin
+    int dirPin;                                   // Saved direction pin
+    
+    // State variables                            
+    int hallValue;                                // Latest Hall sensor reading
+    int minThreshold;                             // Alignment threshold
+    bool isRunning;                               // Whether motor is intended to run
+    bool currentDirection;                        // Current direction state (true=HIGH)
+    
+    // Timer variables                            
+    unsigned long lastStepTime;                   // Timestamp of last step (ms)
+    unsigned long pauseStartTime;                 // Timestamp when pause started (ms)
+    bool isPaused;                                // Unused flag placeholder (could be removed)
+    
+    // State machine states                       
+    enum State {                                  // Begin enum of states
+    RUNNING,                                    // Stepping normally
+    PAUSED,                                     // Temporarily stopped
+    CHANGING_DIRECTION                          // Flipping direction
+    };                                            // End enum
+    State currentState;                           // Current state variable
+
+public:                                         // Public: external interface
+    // Constructor                                
+    StepperMotorController(int hall, int step, int dir, int threshold = MIN_THRESHOLD) // Params and default threshold
+    : hallPin(hall), stepPin(step), dirPin(dir), minThreshold(threshold) { // Member initializer list
+    hallValue = 0;                              // Initialize sensor reading
+    isRunning = false;                          // Not running until initialized
+    currentDirection = true;                    // Default direction HIGH
+    lastStepTime = 0;                           // Reset step timer
+    pauseStartTime = 0;                         // Reset pause timer
+    isPaused = false;                           // Default not paused
+    currentState = RUNNING;                     // Start in RUNNING state
+    }                                             // End constructor
+    
+    // Initialize the controller                  
+    void initialize() {                           // Begin initialize method
+    pinMode(hallPin, INPUT);                    // Hall pin as input
+    pinMode(stepPin, OUTPUT);                   // Step pin as output
+    pinMode(dirPin, OUTPUT);                    // Direction pin as output
+    
+    digitalWrite(dirPin, currentDirection ? HIGH : LOW); // Apply initial direction
+    isRunning = true;                           // Enable running
+                                                    
+    Serial.println("StepperMotorController initialized"); // Log init
+    Serial.println("Starting rotation...");     // Log start
+    }                                             // End initialize
+    
+    // Main update method - call this in loop()   
+    void update() {                               // Begin update
+    hallValue = analogRead(hallPin);            // Read Hall sensor
+    Serial.println(hallValue);                  // Print sensor value
+    
+    switch (currentState) {                     // State machine dispatch
+        case RUNNING:                             // If running
+        handleRunningState();                   // Process running behavior
+        break;                                  // Exit switch arm
+        
+        case PAUSED:                              // If paused
+        handlePausedState();                    // Process pause behavior
+        break;                                  // Exit switch arm
+        
+        case CHANGING_DIRECTION:                  // If changing direction
+        handleChangingDirectionState();         // Flip direction and continue
+        break;                                  // Exit switch arm
+    }                                           // End switch
+    }                                             // End update
+    
+private:                                        // Private helper methods
+    // Handle the running state                   
+    void handleRunningState() {                   // Begin handler
+    if (hallValue <= minThreshold) {            // If aligned with magnet
+        Serial.println("Magnet aligned - stopping motor."); // Log stop
+        currentState = PAUSED;                    // Move to PAUSED
+        pauseStartTime = millis();                // Start pause timer
+        return;                                   // Exit early
+    }                                           // End alignment check
+    
+    unsigned long currentTime = millis();       // Get current time (ms)
+    if (currentTime - lastStepTime >= STEP_DELAY) { // If time to step
+        performStep();                            // Issue one step pulse
+        lastStepTime = currentTime;               // Update last step timestamp
+    }                                           // End timing check
+    }                                             // End running handler
+    
+    // Handle the paused state                     
+    void handlePausedState() {                    // Begin handler
+    unsigned long currentTime = millis();       // Get current time (ms)
+    
+    if (currentTime - pauseStartTime >= PAUSE_DURATION) { // If pause elapsed
+        Serial.println("Restarting rotation..."); // Log restart
+        currentState = CHANGING_DIRECTION;        // Move to direction change
+    }                                           // End pause check
+    }                                             // End paused handler
+    
+    // Handle the direction changing state        
+    void handleChangingDirectionState() {         // Begin handler
+    currentDirection = !currentDirection;       // Toggle direction state
+    digitalWrite(dirPin, currentDirection ? HIGH : LOW); // Apply to pin
+    
+    Serial.print("Direction changed to: ");     // Log label
+    Serial.println(currentDirection ? "HIGH" : "LOW"); // Log value
+    
+    currentState = RUNNING;                     // Return to RUNNING
+    lastStepTime = millis();                    // Reset step timer
+    }                                             // End change-direction handler
+    
+    // Perform a single step                      
+    void performStep() {                          // Begin step method
+    digitalWrite(stepPin, HIGH);                // Raise step pin
+    delayMicroseconds(1);                       // Short pulse width
+    digitalWrite(stepPin, LOW);                 // Lower step pin
+    }                                             // End step method
+    
+public:                                         // Public status and control
+    int getHallValue() const { return hallValue; } // Read current Hall value
+    bool isMotorRunning() const { return isRunning && currentState == RUNNING; } // Query running status
+    bool getCurrentDirection() const { return currentDirection; } // Read direction
+    State getCurrentState() const { return currentState; } // Read state
+    
+    void stop() {                                 // External stop command
+    isRunning = false;                          // Mark not running
+    currentState = PAUSED;                      // Move to PAUSED
+    Serial.println("Motor stopped by user");    // Log stop
+    }                                             // End stop
+    
+    void start() {                                // External start command
+    isRunning = true;                           // Mark running
+    currentState = RUNNING;                     // Move to RUNNING
+    lastStepTime = millis();                    // Reset timer
+    Serial.println("Motor started by user");    // Log start
+    }                                             // End start
+};                                              // End class
+
+// --- Global Variables ---                      
+StepperMotorController motorController(HALL_PIN, STEP_PIN, DIR_PIN, MIN_THRESHOLD); // Create controller
+
+// --- Setup Function ---                       
+void setup() {                                  // Begin setup
+    Serial.begin(115200);                         // Start serial
+    motorController.initialize();                 // Initialize controller
+}                                               // End setup
+
+// --- Main Loop ---                            
+void loop() {                                   // Begin loop
+    motorController.update();                     // Periodically run controller
+    
+}</code></pre>
+
+    <div class="clearfix"></div>
+</body>
+</html>
