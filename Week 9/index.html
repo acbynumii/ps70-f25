@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+
+    <title>PS70: Week 9</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="left">
+            <a href="../index.html">PS70 Fall 2025</a>
+        </div>
+        <div class="right">
+            <a href="../index.html">About Me</a>
+            <a href="../final-project.html">Final Project</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Networking and Communication</h1>
+            <p>This week focused on programming a microcontroller to obtain and respond to information from the internet or radio. The project includes at least one input device and one output device, demonstrating wireless communication capabilities. This assignment explores how microcontrollers can interact with remote data sources and respond to information from beyond their immediate physical environment.</p>
+        </div>
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Project Overview</h1>
+            <p>Describe your networking and communication project here. Explain whether you're using internet connectivity (WiFi, HTTP requests, APIs) or radio communication (Bluetooth, LoRa, RF modules, etc.). Detail what information you're obtaining (sensor data, weather data, API responses, radio signals, etc.) and how your system responds to that information through output devices.</p>
+        </div>
+    </section>
+
+    <!-- PHOTOS GALLERY -->
+    <div class="gallery-center">
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week9_setup.webp">
+                    <img src="../images/week9_setup.webp" alt="Project Setup">
+                </a>
+                <div class="desc">Project Setup</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week9_network.webp">
+                    <img src="../images/week9_network.webp" alt="Network Configuration">
+                </a>
+                <div class="desc">Network/Radio Configuration</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week9_schematic.webp">
+                    <img src="../images/week9_schematic.webp" alt="Circuit Schematic">
+                </a>
+                <div class="desc">Circuit Schematic</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- COMMUNICATION METHOD -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Communication Method: [Internet / Radio]</h1>
+            <p>Specify whether you're using internet connectivity or radio communication, and provide detailed documentation:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>Internet Connectivity:</strong> Describe your WiFi setup, HTTP client implementation, API integration, data parsing, and how you handle network requests and responses.</li>
+                <li><strong>Radio Communication:</strong> Describe your radio module (Bluetooth, LoRa, RF, etc.), communication protocol, data encoding/decoding, range considerations, and pairing/connection process.</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="gallery-center">
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week9_communication.webp">
+                    <img src="../images/week9_communication.webp" alt="Communication Method">
+                </a>
+                <div class="desc">Communication Hardware</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week9_data.webp">
+                    <img src="../images/week9_data.webp" alt="Data Flow">
+                </a>
+                <div class="desc">Data Flow Diagram</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- INPUT DEVICE -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Input Device</h1>
+            <p>Describe the input device(s) you're using in this project. This could be a sensor that provides local data, a button/switch for user interaction, or the communication interface itself receiving remote data. Explain how the input data is processed and used to trigger responses in your system.</p>
+        </div>
+    </section>
+
+    <div class="gallery-center">
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week9_input.webp">
+                    <img src="../images/week9_input.webp" alt="Input Device">
+                </a>
+                <div class="desc">Input Device</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- OUTPUT DEVICE -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Output Device</h1>
+            <p>Describe the output device(s) that respond to the information obtained from the internet or radio. Explain how the remote data influences the output behavior. This could include LEDs, displays, motors, speakers, or other actuators that change based on the received information.</p>
+        </div>
+    </section>
+
+    <div class="gallery-center">
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week9_output.webp">
+                    <img src="../images/week9_output.webp" alt="Output Device">
+                </a>
+                <div class="desc">Output Device</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- VIDEOS GALLERY -->
+    <div class="gallery-center" style="margin-top: 60px;">
+        <div class="responsive" style="width: 37.5%; max-width: 300px;">
+            <div class="gallery">
+                <a target="_blank" href="../images/week9_demo.mp4">
+                    <video controls>
+                        <source src="../images/week9_demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </a>
+                <div class="desc">Project Demonstration</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- ARDUINO CODE -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Microcontroller Program Implementation</h1>
+            <p>Below is the complete microcontroller code that implements networking/communication functionality. The code demonstrates how to connect to the internet or radio, obtain information, process it, and control output devices based on that information.</p>
+        </div>
+    </section>
+
+    <div class="code-block">
+        <div class="code-title">Networking and Communication Code</div>
+        <pre><code>// --- Libraries ---                          
+#include <Arduino.h>                           // Core Arduino functions
+#include <WiFi.h>                              // WiFi library (for internet)
+// #include <BluetoothSerial.h>                // Bluetooth library (for radio)
+// #include <HTTPClient.h>                     // HTTP client library
+// #include <ArduinoJson.h>                    // JSON parsing library
+
+// --- Network Credentials (Internet) ---      
+const char* ssid = "YOUR_SSID";                // WiFi network name
+const char* password = "YOUR_PASSWORD";         // WiFi password
+
+// --- Pin Assignments ---                     
+#define INPUT_PIN 34                           // Input device pin
+#define OUTPUT_PIN 12                          // Output device pin
+
+// --- Constants ---                           
+const unsigned long UPDATE_INTERVAL = 5000;    // Update interval in ms
+const char* API_URL = "https://api.example.com/data"; // API endpoint
+
+// --- NetworkManager Class (Internet) ---    
+class NetworkManager {                         // Begin class definition
+private:                                        // Private: internal details
+    String ssid;                                 // WiFi SSID
+    String password;                             // WiFi password
+    bool isConnected;                            // Connection status
+    unsigned long lastUpdateTime;                // Timestamp of last update
+    
+public:                                         // Public: external interface
+    // Constructor                                
+    NetworkManager(const char* networkSSID, const char* networkPassword)
+    : ssid(networkSSID), password(networkPassword) { // Member initializer list
+        isConnected = false;                     // Initialize connection status
+        lastUpdateTime = 0;                       // Initialize timer
+    }                                             // End constructor
+    
+    // Initialize and connect to WiFi            
+    void initialize() {                           // Begin initialize method
+        Serial.print("Connecting to WiFi: ");     // Log label
+        Serial.println(ssid);                     // Log SSID
+        
+        WiFi.begin(ssid.c_str(), password.c_str()); // Start WiFi connection
+        
+        int attempts = 0;                        // Connection attempt counter
+        while (WiFi.status() != WL_CONNECTED && attempts < 20) { // While not connected
+            delay(500);                           // Wait 500ms
+            Serial.print(".");                   // Progress indicator
+            attempts++;                           // Increment counter
+        }                                         // End connection loop
+        
+        if (WiFi.status() == WL_CONNECTED) {     // If connected
+            isConnected = true;                   // Mark as connected
+            Serial.println("");                   // New line
+            Serial.println("WiFi connected!");    // Log success
+            Serial.print("IP address: ");         // Log label
+            Serial.println(WiFi.localIP());       // Log IP address
+        } else {                                  // Otherwise
+            Serial.println("");                   // New line
+            Serial.println("WiFi connection failed!"); // Log failure
+        }                                         // End connection check
+    }                                             // End initialize
+    
+    // Check if connected                         
+    bool connected() const {                      // Begin connected method
+        return isConnected && WiFi.status() == WL_CONNECTED; // Return status
+    }                                             // End connected
+    
+    // Fetch data from API (example)              
+    String fetchData(const char* url) {           // Begin fetchData method
+        if (!connected()) {                       // If not connected
+            return "";                            // Return empty string
+        }                                         // End connection check
+        
+        HTTPClient http;                          // Create HTTP client
+        http.begin(url);                          // Begin request
+        int httpCode = http.GET();                // Send GET request
+        
+        String payload = "";                       // Initialize payload
+        if (httpCode > 0) {                       // If request successful
+            payload = http.getString();           // Get response body
+        }                                         // End success check
+        
+        http.end();                               // End request
+        return payload;                           // Return payload
+    }                                             // End fetchData
+};                                              // End class
+
+// --- InputDevice Class ---                   
+class InputDevice {                            // Begin class definition
+private:                                        // Private: internal details
+    int pin;                                     // Input pin number
+    int lastValue;                               // Last read value
+    
+public:                                         // Public: external interface
+    // Constructor                                
+    InputDevice(int inputPin) : pin(inputPin) { // Member initializer list
+        lastValue = 0;                           // Initialize value
+    }                                             // End constructor
+    
+    // Initialize the input device                
+    void initialize() {                           // Begin initialize method
+        pinMode(pin, INPUT);                     // Set pin as input
+        Serial.println("InputDevice initialized"); // Log init
+    }                                             // End initialize
+    
+    // Read the input value                       
+    int read() {                                  // Begin read method
+        lastValue = analogRead(pin);              // Read analog value
+        return lastValue;                         // Return value
+    }                                             // End read
+    
+    // Get the last read value                    
+    int getValue() const { return lastValue; }    // Return last value
+};                                              // End class
+
+// --- OutputDevice Class ---                  
+class OutputDevice {                           // Begin class definition
+private:                                        // Private: internal details
+    int pin;                                     // Output pin number
+    int currentState;                            // Current output state
+    
+public:                                         // Public: external interface
+    // Constructor                                
+    OutputDevice(int outputPin) : pin(outputPin) { // Member initializer list
+        currentState = LOW;                       // Initialize state
+    }                                             // End constructor
+    
+    // Initialize the output device                
+    void initialize() {                           // Begin initialize method
+        pinMode(pin, OUTPUT);                    // Set pin as output
+        digitalWrite(pin, LOW);                  // Set initial state
+        Serial.println("OutputDevice initialized"); // Log init
+    }                                             // End initialize
+    
+    // Set the output state                       
+    void setState(int state) {                    // Begin setState method
+        currentState = state;                     // Update state
+        digitalWrite(pin, state);                 // Apply to pin
+    }                                             // End setState
+    
+    // Get the current state                       
+    int getState() const { return currentState; } // Return current state
+};                                              // End class
+
+// --- CommunicationController Class ---        
+class CommunicationController {                // Begin class definition
+private:                                        // Private: internal details
+    NetworkManager* network;                     // Pointer to network manager
+    InputDevice* input;                          // Pointer to input device
+    OutputDevice* output;                        // Pointer to output device
+    unsigned long lastUpdateTime;                // Timestamp of last update
+    
+public:                                         // Public: external interface
+    // Constructor                                
+    CommunicationController(NetworkManager* net, InputDevice* in, OutputDevice* out)
+    : network(net), input(in), output(out) {     // Member initializer list
+        lastUpdateTime = 0;                       // Initialize timer
+    }                                             // End constructor
+    
+    // Initialize the controller                  
+    void initialize() {                           // Begin initialize method
+        network->initialize();                    // Initialize network
+        input->initialize();                      // Initialize input
+        output->initialize();                     // Initialize output
+        Serial.println("CommunicationController initialized"); // Log init
+    }                                             // End initialize
+    
+    // Main update method - call this in loop()    
+    void update() {                               // Begin update
+        unsigned long currentTime = millis();     // Get current time
+        
+        if (currentTime - lastUpdateTime >= UPDATE_INTERVAL) { // If time to update
+            if (network->connected()) {            // If network connected
+                // Fetch data from internet/API     
+                String data = network->fetchData(API_URL); // Get remote data
+                Serial.print("Received data: ");  // Log label
+                Serial.println(data);             // Log data
+                
+                // Process data and control output   
+                // Example: parse data and set output based on value
+                int inputValue = input->read();   // Read local input
+                Serial.print("Input value: ");    // Log label
+                Serial.println(inputValue);       // Log value
+                
+                // Control output based on remote data
+                // (Customize this logic based on your project)
+                if (data.length() > 0) {          // If data received
+                    output->setState(HIGH);        // Activate output
+                } else {                          // Otherwise
+                    output->setState(LOW);         // Deactivate output
+                }                                 // End condition
+            }                                     // End connection check
+            
+            lastUpdateTime = currentTime;         // Update timestamp
+        }                                         // End timing check
+    }                                             // End update
+};                                              // End class
+
+// --- Global Variables ---                      
+NetworkManager networkManager(ssid, password); // Create network manager
+InputDevice inputDevice(INPUT_PIN);            // Create input device
+OutputDevice outputDevice(OUTPUT_PIN);         // Create output device
+CommunicationController controller(&networkManager, &inputDevice, &outputDevice); // Create controller
+
+// --- Setup Function ---                       
+void setup() {                                  // Begin setup
+    Serial.begin(115200);                         // Start serial
+    delay(1000);                                 // Wait for serial monitor
+    controller.initialize();                     // Initialize controller
+}                                               // End setup
+
+// --- Main Loop ---                            
+void loop() {                                   // Begin loop
+    controller.update();                         // Periodically run controller
+    // No delay() function used!                 // Note: non-blocking
+}                                               // End loop</code></pre>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- DATA FLOW -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Data Flow and System Architecture</h1>
+            <p>Describe the flow of information through your system. Explain how data moves from the source (internet/radio) through your microcontroller to the output devices. Include details about data parsing, error handling, and how your system responds to different types of information or communication failures.</p>
+        </div>
+    </section>
+
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- CHALLENGES AND REFLECTION -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Challenges and Reflection</h1>
+            <p>Describe the challenges you encountered while implementing networking and communication functionality. Discuss issues with connectivity, data parsing, timing, or integration between communication and I/O devices. Reflect on what you learned about wireless communication, network protocols, and how this technology could be applied to your final project.</p>
+        </div>
+    </section>
+
+    <div class="clearfix"></div>
+</body>
+</html>

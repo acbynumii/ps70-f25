@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+
+    <title>PS70: Week 7</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="left">
+            <a href="../index.html">PS70 Fall 2025</a>
+        </div>
+        <div class="right">
+            <a href="../index.html">About Me</a>
+            <a href="../final-project.html">Final Project</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Minimum Viable Product (MVP)</h1>
+            <p>This week focused on creating a Minimum Viable Product (MVP) for the most challenging aspect of my final project. The project integrates at least one input device and one output device, includes a custom housing or enclosure, and uses a microcontroller program with C++ class structure while avoiding the delay() function. This MVP represents a serious attempt at tackling the core technical challenges of the final project.</p>
+        </div>
+    </section>
+
+    <!-- MVP PROJECT -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Project Overview</h1>
+            <p>Describe your MVP project here. Explain what the most challenging/intimidating aspect of your final project is and how this MVP addresses it. Include details about the input and output devices you're using, the housing/enclosure design, and how the C++ class structure helps organize your code.</p>
+        </div>
+    </section>
+
+    <!-- PHOTOS GALLERY -->
+    <div class="gallery-center">
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week7_setup.webp">
+                    <img src="../images/week7_setup.webp" alt="MVP Setup">
+                </a>
+                <div class="desc">MVP Setup</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week7_enclosure.webp">
+                    <img src="../images/week7_enclosure.webp" alt="Enclosure Design">
+                </a>
+                <div class="desc">Enclosure/Housing Design</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week7_schematic.webp">
+                    <img src="../images/week7_schematic.webp" alt="Circuit Schematic">
+                </a>
+                <div class="desc">Circuit Schematic</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <!-- VIDEOS GALLERY -->
+    <div class="gallery-center" style="margin-top: 60px;">
+        <div class="responsive" style="width: 37.5%; max-width: 300px;">
+            <div class="gallery">
+                <a target="_blank" href="../images/week7_demo.mp4">
+                    <video controls>
+                        <source src="../images/week7_demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </a>
+                <div class="desc">MVP Demonstration</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- INPUT/OUTPUT DEVICES -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Input and Output Devices</h1>
+            <p>Describe the input device(s) you're using (e.g., sensors, buttons, switches) and how they interface with your microcontroller. Then describe the output device(s) (e.g., motors, LEDs, displays, actuators) and how they respond to the input signals. Explain the integration between these devices and how they work together in your MVP.</p>
+        </div>
+    </section>
+
+    <div class="gallery-center">
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week7_input.webp">
+                    <img src="../images/week7_input.webp" alt="Input Device">
+                </a>
+                <div class="desc">Input Device</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week7_output.webp">
+                    <img src="../images/week7_output.webp" alt="Output Device">
+                </a>
+                <div class="desc">Output Device</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- ENCLOSURE/HOUSING -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Housing and Enclosure</h1>
+            <p>Describe your housing or enclosure design. Explain the design considerations, materials used, fabrication method (3D printing, laser cutting, CNC, etc.), and how it protects and organizes your components. Include details about any mounting points, access panels, or other design features.</p>
+        </div>
+    </section>
+
+    <div class="gallery-center">
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week7_housing_design.webp">
+                    <img src="../images/week7_housing_design.webp" alt="Housing CAD Design">
+                </a>
+                <div class="desc">Housing CAD Design</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="../images/week7_housing_fabricated.webp">
+                    <img src="../images/week7_housing_fabricated.webp" alt="Fabricated Housing">
+                </a>
+                <div class="desc">Fabricated Housing</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- ARDUINO CODE -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Microcontroller Program Implementation</h1>
+            <p>Below is the complete microcontroller code that implements the MVP using C++ class structure. The code avoids the delay() function and uses timer-based approaches for responsive operation. The class structure helps organize the code and makes it more maintainable and reusable.</p>
+        </div>
+    </section>
+
+    <div class="code-block">
+        <div class="code-title">MVP Microcontroller Code with C++ Classes</div>
+        <pre><code>// --- Libraries ---                          
+#include <Arduino.h>                           // Core Arduino functions
+
+// --- Pin Assignments ---                     
+#define INPUT_PIN 34                           // Input device pin
+#define OUTPUT_PIN 12                          // Output device pin
+
+// --- Constants ---                           
+const unsigned long UPDATE_INTERVAL = 50;      // Update interval in ms
+const int THRESHOLD = 512;                     // Example threshold value
+
+// --- InputDevice Class ---                   
+class InputDevice {                            // Begin class definition
+private:                                        // Private: internal details
+    int pin;                                     // Input pin number
+    int lastValue;                               // Last read value
+    unsigned long lastReadTime;                  // Timestamp of last read
+    
+public:                                         // Public: external interface
+    // Constructor                                
+    InputDevice(int inputPin) : pin(inputPin) { // Member initializer list
+        lastValue = 0;                           // Initialize value
+        lastReadTime = 0;                        // Initialize timer
+    }                                             // End constructor
+    
+    // Initialize the input device                
+    void initialize() {                           // Begin initialize method
+        pinMode(pin, INPUT);                     // Set pin as input
+        Serial.println("InputDevice initialized"); // Log init
+    }                                             // End initialize
+    
+    // Read the input value (non-blocking)        
+    int read() {                                  // Begin read method
+        unsigned long currentTime = millis();     // Get current time
+        if (currentTime - lastReadTime >= UPDATE_INTERVAL) { // If time to read
+            lastValue = analogRead(pin);          // Read analog value
+            lastReadTime = currentTime;           // Update timestamp
+        }                                         // End timing check
+        return lastValue;                         // Return last value
+    }                                             // End read
+    
+    // Get the last read value                    
+    int getValue() const { return lastValue; }    // Return last value
+};                                              // End class
+
+// --- OutputDevice Class ---                  
+class OutputDevice {                           // Begin class definition
+private:                                        // Private: internal details
+    int pin;                                     // Output pin number
+    int currentState;                            // Current output state
+    unsigned long lastUpdateTime;                // Timestamp of last update
+    
+public:                                         // Public: external interface
+    // Constructor                                
+    OutputDevice(int outputPin) : pin(outputPin) { // Member initializer list
+        currentState = LOW;                       // Initialize state
+        lastUpdateTime = 0;                       // Initialize timer
+    }                                             // End constructor
+    
+    // Initialize the output device                
+    void initialize() {                           // Begin initialize method
+        pinMode(pin, OUTPUT);                    // Set pin as output
+        digitalWrite(pin, LOW);                  // Set initial state
+        Serial.println("OutputDevice initialized"); // Log init
+    }                                             // End initialize
+    
+    // Set the output state                       
+    void setState(int state) {                    // Begin setState method
+        currentState = state;                     // Update state
+        digitalWrite(pin, state);                 // Apply to pin
+    }                                             // End setState
+    
+    // Get the current state                       
+    int getState() const { return currentState; } // Return current state
+};                                              // End class
+
+// --- MVPController Class ---                 
+class MVPController {                          // Begin class definition
+private:                                        // Private: internal details
+    InputDevice* input;                          // Pointer to input device
+    OutputDevice* output;                        // Pointer to output device
+    int threshold;                               // Threshold for activation
+    
+public:                                         // Public: external interface
+    // Constructor                                
+    MVPController(InputDevice* in, OutputDevice* out, int thresh = THRESHOLD)
+    : input(in), output(out), threshold(thresh) { // Member initializer list
+    }                                             // End constructor
+    
+    // Initialize the controller                  
+    void initialize() {                           // Begin initialize method
+        input->initialize();                      // Initialize input
+        output->initialize();                     // Initialize output
+        Serial.println("MVPController initialized"); // Log init
+    }                                             // End initialize
+    
+    // Main update method - call this in loop()    
+    void update() {                               // Begin update
+        int inputValue = input->read();            // Read input device
+        Serial.print("Input value: ");            // Log label
+        Serial.println(inputValue);               // Log value
+        
+        // Control output based on input           
+        if (inputValue > threshold) {             // If above threshold
+            output->setState(HIGH);                // Activate output
+        } else {                                   // Otherwise
+            output->setState(LOW);                 // Deactivate output
+        }                                         // End condition
+    }                                             // End update
+};                                              // End class
+
+// --- Global Variables ---                      
+InputDevice inputDevice(INPUT_PIN);            // Create input device
+OutputDevice outputDevice(OUTPUT_PIN);         // Create output device
+MVPController controller(&inputDevice, &outputDevice, THRESHOLD); // Create controller
+
+// --- Setup Function ---                       
+void setup() {                                  // Begin setup
+    Serial.begin(115200);                         // Start serial
+    controller.initialize();                     // Initialize controller
+}                                               // End setup
+
+// --- Main Loop ---                            
+void loop() {                                   // Begin loop
+    controller.update();                         // Periodically run controller
+    // No delay() function used!                 // Note: non-blocking
+}                                               // End loop</code></pre>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- CHALLENGES AND REFLECTION -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Challenges and Reflection</h1>
+            <p>Describe the challenges you encountered while building your MVP, including technical difficulties, design issues, or integration problems. Reflect on what you learned from this process and how it will inform your final project development. Discuss any iterations or improvements you made along the way.</p>
+        </div>
+    </section>
+
+    <div class="clearfix"></div>
+</body>
+</html>
