@@ -28,7 +28,7 @@
     <section class="hero-section">    
         <div class="text">
             <h1>Networking and Communication</h1>
-            <p>This week focused on programming a microcontroller to obtain and respond to information from the internet or radio. The project includes at least one input device and one output device, demonstrating wireless communication capabilities. This assignment explores how microcontrollers can interact with remote data sources and respond to information from beyond their immediate physical environment.</p>
+            <p>This week focused on programming a microcontroller to obtain and respond to information from a radio communication. The project includes at least one input device and one output device, demonstrating wireless communication capabilities. This assignment explores how microcontrollers can interact with remote data sources and respond to information from beyond their immediate physical environment.</p>
         </div>
     </section>
 
@@ -36,83 +36,15 @@
     <section class="hero-section">    
         <div class="text">
             <h1>Project Overview</h1>
-            <p>Describe your networking and communication project here. Explain whether you're using internet connectivity (WiFi, HTTP requests, APIs) or radio communication (Bluetooth, LoRa, RF modules, etc.). Detail what information you're obtaining (sensor data, weather data, API responses, radio signals, etc.) and how your system responds to that information through output devices.</p>
+            <p style="margin-bottom: 20px;">This project uses Bluetooth radio communication to wirelessly control a SCARA robotic arm with an ESP32. The system receives simple character commands from a paired device and interprets them as motion instructions. In response, the ESP32 drives stepper motors and a servo motor, allowing the robot to move and operate in real time based on the wireless input.</p>
+            <p style="margin-bottom: 20px;">The main input device in this project is the Bluetooth communication interface on the ESP32, which receives single-character commands sent wirelessly from a paired device through the serial monitor. These characters represent user control inputs and are continuously read and processed in the main loop to determine the desired motion of the SCARA arm. In addition to Bluetooth, a physical limit switch on the Z-axis serves as a safety input, providing real-time positional feedback to prevent the arm from exceeding its mechanical limits. Together, these inputs allow both remote user control and local constraint checking.</p>
+            <p>The outputs of the system are the actuators on the SCARA arm, including multiple stepper motors and a servo motor. Based on the Bluetooth commands received, the ESP32 drives the stepper motors to control the Z-axis motion, base rotation, and end-effector rotation, while the servo motor opens and closes the claw. The remote input directly determines the direction and magnitude of each movement, allowing the robot to respond immediately and physically to wireless user commands.</p>
         </div>
     </section>
 
     <!-- PHOTOS GALLERY -->
     <div class="gallery-center">
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week9_setup.webp">
-                    <img src="../images/week9_setup.webp" alt="Project Setup">
-                </a>
-                <div class="desc">Project Setup</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week9_network.webp">
-                    <img src="../images/week9_network.webp" alt="Network Configuration">
-                </a>
-                <div class="desc">Network/Radio Configuration</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week9_schematic.webp">
-                    <img src="../images/week9_schematic.webp" alt="Circuit Schematic">
-                </a>
-                <div class="desc">Circuit Schematic</div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="divider"></div>
-
-    <!-- COMMUNICATION METHOD -->
-    <section class="hero-section">    
-        <div class="text">
-            <h1>Communication Method: [Internet / Radio]</h1>
-            <p>Specify whether you're using internet connectivity or radio communication, and provide detailed documentation:</p>
-            <ul style="margin-left: 20px; margin-top: 10px;">
-                <li><strong>Internet Connectivity:</strong> Describe your WiFi setup, HTTP client implementation, API integration, data parsing, and how you handle network requests and responses.</li>
-                <li><strong>Radio Communication:</strong> Describe your radio module (Bluetooth, LoRa, RF, etc.), communication protocol, data encoding/decoding, range considerations, and pairing/connection process.</li>
-            </ul>
-        </div>
-    </section>
-
-    <div class="gallery-center">
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week9_communication.webp">
-                    <img src="../images/week9_communication.webp" alt="Communication Method">
-                </a>
-                <div class="desc">Communication Hardware</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week9_data.webp">
-                    <img src="../images/week9_data.webp" alt="Data Flow">
-                </a>
-                <div class="desc">Data Flow Diagram</div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="divider"></div>
-
-    <!-- INPUT DEVICE -->
-    <section class="hero-section">    
-        <div class="text">
-            <h1>Input Device</h1>
-            <p>Describe the input device(s) you're using in this project. This could be a sensor that provides local data, a button/switch for user interaction, or the communication interface itself receiving remote data. Explain how the input data is processed and used to trigger responses in your system.</p>
-        </div>
-    </section>
-
-    <div class="gallery-center">
-        <div class="responsive">
+        <div class="responsive" style="max-width: 400px;">
             <div class="gallery">
                 <a target="_blank" href="../images/week9_input.webp">
                     <img src="../images/week9_input.webp" alt="Input Device">
@@ -120,25 +52,20 @@
                 <div class="desc">Input Device</div>
             </div>
         </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="divider"></div>
-
-    <!-- OUTPUT DEVICE -->
-    <section class="hero-section">    
-        <div class="text">
-            <h1>Output Device</h1>
-            <p>Describe the output device(s) that respond to the information obtained from the internet or radio. Explain how the remote data influences the output behavior. This could include LEDs, displays, motors, speakers, or other actuators that change based on the received information.</p>
-        </div>
-    </section>
-
-    <div class="gallery-center">
-        <div class="responsive">
+        <div class="responsive" style="max-width: 400px;">
             <div class="gallery">
                 <a target="_blank" href="../images/week9_output.webp">
                     <img src="../images/week9_output.webp" alt="Output Device">
                 </a>
                 <div class="desc">Output Device</div>
+            </div>
+        </div>
+        <div class="responsive" style="max-width: 400px;">
+            <div class="gallery">
+                <a target="_blank" href="../images/week9_circuit.webp">
+                    <img src="../images/week9_circuit.webp" alt="Photo of the Circuit">
+                </a>
+                <div class="desc">Photo of the Circuit</div>
             </div>
         </div>
     </div>
@@ -166,239 +93,256 @@
     <section class="hero-section">    
         <div class="text">
             <h1>Microcontroller Program Implementation</h1>
-            <p>Below is the complete microcontroller code that implements networking/communication functionality. The code demonstrates how to connect to the internet or radio, obtain information, process it, and control output devices based on that information.</p>
+            <p>Below is the complete microcontroller code that implements the Bluetooth connection from the Serial Monitor to the ESP32.</p>
         </div>
     </section>
 
     <div class="code-block">
         <div class="code-title">Networking and Communication Code</div>
-        <pre><code>// --- Libraries ---                          
-#include <Arduino.h>                           // Core Arduino functions
-#include <WiFi.h>                              // WiFi library (for internet)
-// #include <BluetoothSerial.h>                // Bluetooth library (for radio)
-// #include <HTTPClient.h>                     // HTTP client library
-// #include <ArduinoJson.h>                    // JSON parsing library
+        <pre><code>// --- Libraries ---
+#include &lt;AccelStepper.h&gt;
+#include &lt;ESP32Servo.h&gt;
+#include &lt;ESP32PWM.h&gt;
+#include &lt;BluetoothSerial.h&gt;
 
-// --- Network Credentials (Internet) ---      
-const char* ssid = "YOUR_SSID";                // WiFi network name
-const char* password = "YOUR_PASSWORD";         // WiFi password
+/*
 
-// --- Pin Assignments ---                     
-#define INPUT_PIN 34                           // Input device pin
-#define OUTPUT_PIN 12                          // Output device pin
-
-// --- Constants ---                           
-const unsigned long UPDATE_INTERVAL = 5000;    // Update interval in ms
-const char* API_URL = "https://api.example.com/data"; // API endpoint
-
-// --- NetworkManager Class (Internet) ---    
-class NetworkManager {                         // Begin class definition
-private:                                        // Private: internal details
-    String ssid;                                 // WiFi SSID
-    String password;                             // WiFi password
-    bool isConnected;                            // Connection status
-    unsigned long lastUpdateTime;                // Timestamp of last update
-    
-public:                                         // Public: external interface
-    // Constructor                                
-    NetworkManager(const char* networkSSID, const char* networkPassword)
-    : ssid(networkSSID), password(networkPassword) { // Member initializer list
-        isConnected = false;                     // Initialize connection status
-        lastUpdateTime = 0;                       // Initialize timer
-    }                                             // End constructor
-    
-    // Initialize and connect to WiFi            
-    void initialize() {                           // Begin initialize method
-        Serial.print("Connecting to WiFi: ");     // Log label
-        Serial.println(ssid);                     // Log SSID
-        
-        WiFi.begin(ssid.c_str(), password.c_str()); // Start WiFi connection
-        
-        int attempts = 0;                        // Connection attempt counter
-        while (WiFi.status() != WL_CONNECTED && attempts < 20) { // While not connected
-            delay(500);                           // Wait 500ms
-            Serial.print(".");                   // Progress indicator
-            attempts++;                           // Increment counter
-        }                                         // End connection loop
-        
-        if (WiFi.status() == WL_CONNECTED) {     // If connected
-            isConnected = true;                   // Mark as connected
-            Serial.println("");                   // New line
-            Serial.println("WiFi connected!");    // Log success
-            Serial.print("IP address: ");         // Log label
-            Serial.println(WiFi.localIP());       // Log IP address
-        } else {                                  // Otherwise
-            Serial.println("");                   // New line
-            Serial.println("WiFi connection failed!"); // Log failure
-        }                                         // End connection check
-    }                                             // End initialize
-    
-    // Check if connected                         
-    bool connected() const {                      // Begin connected method
-        return isConnected && WiFi.status() == WL_CONNECTED; // Return status
-    }                                             // End connected
-    
-    // Fetch data from API (example)              
-    String fetchData(const char* url) {           // Begin fetchData method
-        if (!connected()) {                       // If not connected
-            return "";                            // Return empty string
-        }                                         // End connection check
-        
-        HTTPClient http;                          // Create HTTP client
-        http.begin(url);                          // Begin request
-        int httpCode = http.GET();                // Send GET request
-        
-        String payload = "";                       // Initialize payload
-        if (httpCode > 0) {                       // If request successful
-            payload = http.getString();           // Get response body
-        }                                         // End success check
-        
-        http.end();                               // End request
-        return payload;                           // Return payload
-    }                                             // End fetchData
-};                                              // End class
-
-// --- InputDevice Class ---                   
-class InputDevice {                            // Begin class definition
-private:                                        // Private: internal details
-    int pin;                                     // Input pin number
-    int lastValue;                               // Last read value
-    
-public:                                         // Public: external interface
-    // Constructor                                
-    InputDevice(int inputPin) : pin(inputPin) { // Member initializer list
-        lastValue = 0;                           // Initialize value
-    }                                             // End constructor
-    
-    // Initialize the input device                
-    void initialize() {                           // Begin initialize method
-        pinMode(pin, INPUT);                     // Set pin as input
-        Serial.println("InputDevice initialized"); // Log init
-    }                                             // End initialize
-    
-    // Read the input value                       
-    int read() {                                  // Begin read method
-        lastValue = analogRead(pin);              // Read analog value
-        return lastValue;                         // Return value
-    }                                             // End read
-    
-    // Get the last read value                    
-    int getValue() const { return lastValue; }    // Return last value
-};                                              // End class
-
-// --- OutputDevice Class ---                  
-class OutputDevice {                           // Begin class definition
-private:                                        // Private: internal details
-    int pin;                                     // Output pin number
-    int currentState;                            // Current output state
-    
-public:                                         // Public: external interface
-    // Constructor                                
-    OutputDevice(int outputPin) : pin(outputPin) { // Member initializer list
-        currentState = LOW;                       // Initialize state
-    }                                             // End constructor
-    
-    // Initialize the output device                
-    void initialize() {                           // Begin initialize method
-        pinMode(pin, OUTPUT);                    // Set pin as output
-        digitalWrite(pin, LOW);                  // Set initial state
-        Serial.println("OutputDevice initialized"); // Log init
-    }                                             // End initialize
-    
-    // Set the output state                       
-    void setState(int state) {                    // Begin setState method
-        currentState = state;                     // Update state
-        digitalWrite(pin, state);                 // Apply to pin
-    }                                             // End setState
-    
-    // Get the current state                       
-    int getState() const { return currentState; } // Return current state
-};                                              // End class
-
-// --- CommunicationController Class ---        
-class CommunicationController {                // Begin class definition
-private:                                        // Private: internal details
-    NetworkManager* network;                     // Pointer to network manager
-    InputDevice* input;                          // Pointer to input device
-    OutputDevice* output;                        // Pointer to output device
-    unsigned long lastUpdateTime;                // Timestamp of last update
-    
-public:                                         // Public: external interface
-    // Constructor                                
-    CommunicationController(NetworkManager* net, InputDevice* in, OutputDevice* out)
-    : network(net), input(in), output(out) {     // Member initializer list
-        lastUpdateTime = 0;                       // Initialize timer
-    }                                             // End constructor
-    
-    // Initialize the controller                  
-    void initialize() {                           // Begin initialize method
-        network->initialize();                    // Initialize network
-        input->initialize();                      // Initialize input
-        output->initialize();                     // Initialize output
-        Serial.println("CommunicationController initialized"); // Log init
-    }                                             // End initialize
-    
-    // Main update method - call this in loop()    
-    void update() {                               // Begin update
-        unsigned long currentTime = millis();     // Get current time
-        
-        if (currentTime - lastUpdateTime >= UPDATE_INTERVAL) { // If time to update
-            if (network->connected()) {            // If network connected
-                // Fetch data from internet/API     
-                String data = network->fetchData(API_URL); // Get remote data
-                Serial.print("Received data: ");  // Log label
-                Serial.println(data);             // Log data
-                
-                // Process data and control output   
-                // Example: parse data and set output based on value
-                int inputValue = input->read();   // Read local input
-                Serial.print("Input value: ");    // Log label
-                Serial.println(inputValue);       // Log value
-                
-                // Control output based on remote data
-                // (Customize this logic based on your project)
-                if (data.length() > 0) {          // If data received
-                    output->setState(HIGH);        // Activate output
-                } else {                          // Otherwise
-                    output->setState(LOW);         // Deactivate output
-                }                                 // End condition
-            }                                     // End connection check
-            
-            lastUpdateTime = currentTime;         // Update timestamp
-        }                                         // End timing check
-    }                                             // End update
-};                                              // End class
-
-// --- Global Variables ---                      
-NetworkManager networkManager(ssid, password); // Create network manager
-InputDevice inputDevice(INPUT_PIN);            // Create input device
-OutputDevice outputDevice(OUTPUT_PIN);         // Create output device
-CommunicationController controller(&networkManager, &inputDevice, &outputDevice); // Create controller
-
-// --- Setup Function ---                       
-void setup() {                                  // Begin setup
-    Serial.begin(115200);                         // Start serial
-    delay(1000);                                 // Wait for serial monitor
-    controller.initialize();                     // Initialize controller
-}                                               // End setup
-
-// --- Main Loop ---                            
-void loop() {                                   // Begin loop
-    controller.update();                         // Periodically run controller
-    // No delay() function used!                 // Note: non-blocking
-}                                               // End loop</code></pre>
+            Bluetooth Keyboard Control
+         
+            Controls z-axis stepper motor via Bluetooth input
+         
+            'w' - Move up
+         
+            's' - Move down
+         
+            'd' - Base Rotates CW
+         
+            'a' - Base Rotates CCW
+         
+            'c' - Claw closes
+         
+            'o' - Claw opens
+         
+            'x' - Servo Rotates CW
+         
+            'z' - Servo Rotates CCW
+         
+         */
+         
+         // Check if Bluetooth is available (compile-time check)
+         #if !defined(CONFIG_BT_ENABLED) || !defined(CONFIG_BLUEDROID_ENABLED)
+         #error "Bluetooth is not enabled! Please run `make menuconfig` to enable it"
+         #endif
+         
+         #if !defined(CONFIG_BT_SPP_ENABLED)
+         #error "Serial Bluetooth not available! Please enable it in menuconfig"
+         #endif
+         
+         // Create Bluetooth Serial object
+         BluetoothSerial SerialBT;
+         
+         // Pin Assignments
+         #define STEP_PIN_Z 26   // Z-axis step signal
+         #define DIR_PIN_Z 25    // Z-axis direction signal
+         #define STEP_PIN_S 16
+         #define DIR_PIN_S 17
+         #define STEP_PIN_B 12   // Base rotation step signal
+         #define DIR_PIN_B 14    // Base rotation direction signal
+         #define limit_switch_NO 21  // Z-axis limit switch
+         
+         // Define the z-axis stepper motor
+         AccelStepper stepperZ(1, STEP_PIN_Z, DIR_PIN_Z);  // (Type:driver, STEP, DIR)
+         AccelStepper stepperS(1, STEP_PIN_S, DIR_PIN_S);  // End-effector stepper
+         AccelStepper stepperB(1, STEP_PIN_B, DIR_PIN_B);  // Base rotation stepper
+         
+         // Movement parameters
+         const int moveSpeed = 1000;  // Steps per second when moving
+         long currPositionZ = 0;
+         long currPositionS = 0;
+         long currPositionB = 0;
+         char lastCommand = 0;        // Track last command received
+         
+         Servo myservo;  // create servo object to control a servo
+         int pos = 0;    // variable to store the servo position
+         int servoPin = 5;
+         
+         // Check if limit switch is pressed
+         bool isLimitSwitchPressed() {
+           return digitalRead(limit_switch_NO) == LOW;
+         }
+         
+         void setup() {
+           // Initialize Bluetooth Serial with device name
+           SerialBT.begin("ESP32_Robot"); // Bluetooth device name (change if desired)
+           
+           // Optional: Also initialize regular Serial for debugging
+           Serial.begin(115200);
+           Serial.println("Bluetooth device ready! Pair with 'ESP32_Robot'");
+           
+           pinMode(STEP_PIN_S, OUTPUT);
+           pinMode(DIR_PIN_S, OUTPUT);
+           digitalWrite(STEP_PIN_S, LOW);
+           digitalWrite(DIR_PIN_S, LOW);
+           
+           // Configure limit switch
+           pinMode(limit_switch_NO, INPUT_PULLUP);
+           
+           // Configure stepper motor
+           stepperZ.setMaxSpeed(500);
+           stepperZ.setAcceleration(200);
+           stepperZ.setSpeed(0);  // Start stopped
+           
+           stepperS.setMaxSpeed(800);  // Reduced speed for smoother movement
+           stepperS.setAcceleration(200);  // Reduced acceleration for smoother, less jerky movement
+           stepperS.setSpeed(0);
+           
+           stepperB.setMaxSpeed(50);
+           stepperB.setAcceleration(10);
+           stepperB.setSpeed(0);
+           
+           // Allow allocation of all timers
+           ESP32PWM::allocateTimer(0);
+           ESP32PWM::allocateTimer(1);
+           ESP32PWM::allocateTimer(2);
+           ESP32PWM::allocateTimer(3);
+           
+           myservo.setPeriodHertz(50);    // standard 50 hz servo
+           myservo.attach(servoPin, 1000, 2000); // attaches the servo on servoPin
+         
+           // Initialize servo to open position (0 degrees)
+           pos = 0;
+           myservo.write(pos);
+           delay(500);  // Give servo time to reach open position
+           
+         }
+         
+         void loop() {
+           // Check for Bluetooth commands
+           if (SerialBT.available()) {
+             char command = SerialBT.read();
+             
+             if (command == 'w') {
+               // Move up - check limit switch first, disable 'w' if limit switch is pressed
+               if (!isLimitSwitchPressed()) {
+                 currPositionZ -= 20;
+                 stepperZ.moveTo(currPositionZ);
+                 lastCommand = 'w';
+               } else {
+                 // Limit switch pressed - stop immediately by setting target to current position
+                 stepperZ.moveTo(stepperZ.currentPosition());
+                 currPositionZ = stepperZ.currentPosition();
+                 lastCommand = 0;
+               }
+             }
+             else if (command == 's') {
+               currPositionZ += 20;
+               // Move down
+               stepperZ.moveTo(currPositionZ);  // Negative speed for down
+               lastCommand = 's';
+             }
+             else if (command == 'a') {
+               // Base rotate counter-clockwise
+               currPositionB -= 20;
+               stepperB.moveTo(currPositionB);
+               lastCommand = 'a';
+             }
+             else if (command == 'd') {
+               // Base rotate clockwise
+               currPositionB += 20;
+               stepperB.moveTo(currPositionB);
+               lastCommand = 'd';
+             }
+             else if (command == 'z') {
+               // End-effector rotate counter-clockwise (microstepped for smooth movement)
+               currPositionS -= 100;  // Reduced from 10 to 2 for microstepping
+               stepperS.moveTo(currPositionS);
+               lastCommand = 'z';
+             }
+             else if (command == 'x') {
+               // End-effector rotate clockwise (microstepped for smooth movement)
+               currPositionS += 100;  // Reduced from 10 to 2 for microstepping
+               stepperS.moveTo(currPositionS);
+               lastCommand = 'x';
+             }
+             else if (command == 'o') {
+               // Close servo - goes from 0 degrees to 180 degrees
+               for (pos = 0; pos <= 180; pos += 3) {
+                 myservo.write(pos);    // tell servo to go to position in variable 'pos'
+                 delay(5);             // waits 5ms for the servo to reach the position
+               }
+             }
+             else if (command == 'c') {
+               // Open servo - goes from 180 degrees to 0 degrees
+               for (pos = 180; pos >= 0; pos -= 3) {
+                 myservo.write(pos);    // tell servo to go to position in variable 'pos'
+                 delay(5);             // waits 5ms for the servo to reach the position
+               }
+             }
+             else if (command == ' ') {
+               // Stop (spacebar or any other key stops movement)
+               // Immediately stop all steppers and sync positions
+               stepperZ.stop();
+               stepperS.stop();
+               stepperB.stop();
+               // Sync position variables with actual positions to prevent any movement
+               currPositionZ = stepperZ.currentPosition();
+               currPositionS = stepperS.currentPosition();
+               currPositionB = stepperB.currentPosition();
+               lastCommand = 0;
+             }
+           }
+           else {
+             // If no new command, continue with last command
+             // This allows continuous movement while key is held
+             // Only update target when stepper is close to current target to prevent shaking
+             if (lastCommand == 'w') {
+               // Check limit switch before continuing up movement
+               if (!isLimitSwitchPressed() && abs(stepperZ.distanceToGo()) < 40) {
+                 currPositionZ -= 20;
+                 stepperZ.moveTo(currPositionZ);
+               } else if (isLimitSwitchPressed()) {
+                 // Limit switch pressed - stop immediately by setting target to current position
+                 stepperZ.moveTo(stepperZ.currentPosition());
+                 currPositionZ = stepperZ.currentPosition();
+                 lastCommand = 0;
+               }
+             }
+             else if (lastCommand == 's' && abs(stepperZ.distanceToGo()) < 40) {
+               currPositionZ += 20;
+               stepperZ.moveTo(currPositionZ);
+             }
+             else if (lastCommand == 'a' && abs(stepperB.distanceToGo()) < 40) {
+               currPositionB -= 20;
+               stepperB.moveTo(currPositionB);
+             }
+             else if (lastCommand == 'd' && abs(stepperB.distanceToGo()) < 40) {
+               currPositionB += 20;
+               stepperB.moveTo(currPositionB);
+             }
+             else if (lastCommand == 'z' && abs(stepperS.distanceToGo()) < 40) {
+               currPositionS -= 100;  // Reduced from 10 to 2 for microstepping
+               stepperS.moveTo(currPositionS);
+             }
+             else if (lastCommand == 'x' && abs(stepperS.distanceToGo()) < 40) {
+               currPositionS += 100;  // Reduced from 10 to 2 for microstepping
+               stepperS.moveTo(currPositionS);
+             }
+           }
+           
+           // Check limit switch and stop z-axis immediately if pressed while moving up
+           if (isLimitSwitchPressed() && (lastCommand == 'w' || stepperZ.distanceToGo() < 0)) {
+             // Stop immediately by setting target to current position
+             stepperZ.moveTo(stepperZ.currentPosition());
+             currPositionZ = stepperZ.currentPosition();
+             lastCommand = 0;
+           }
+           
+           // Run the stepper motor (non-blocking)
+           stepperZ.run();
+           stepperS.run();
+           stepperB.run();
+         }</code></pre>
     </div>
-
-    <div class="clearfix"></div>
-    <div class="divider"></div>
-
-    <!-- DATA FLOW -->
-    <section class="hero-section">    
-        <div class="text">
-            <h1>Data Flow and System Architecture</h1>
-            <p>Describe the flow of information through your system. Explain how data moves from the source (internet/radio) through your microcontroller to the output devices. Include details about data parsing, error handling, and how your system responds to different types of information or communication failures.</p>
-        </div>
-    </section>
 
     <div class="clearfix"></div>
     <div class="divider"></div>
@@ -406,8 +350,8 @@ void loop() {                                   // Begin loop
     <!-- CHALLENGES AND REFLECTION -->
     <section class="hero-section">    
         <div class="text">
-            <h1>Challenges and Reflection</h1>
-            <p>Describe the challenges you encountered while implementing networking and communication functionality. Discuss issues with connectivity, data parsing, timing, or integration between communication and I/O devices. Reflect on what you learned about wireless communication, network protocols, and how this technology could be applied to your final project.</p>
+            <h1>Reflection</h1>
+            <p>I transitioned the final code for my robot to a bluetooth version, and the transition went smoothly. In the end, I was able to wirelessly control the robot from my laptop using the serial monitor.</p>
         </div>
     </section>
 

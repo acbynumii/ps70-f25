@@ -117,7 +117,7 @@ div.desc {
     justify-content: space-between;
     align-items: center;
     padding: 0 50px;
-    margin: 50px 0;
+    margin: 30px 0;
     gap: 100px;
 }
 
@@ -135,7 +135,7 @@ div.desc {
   height: 0.5px;
   background-color: white;
   width: 95%;   /* control width */
-  margin: 75px auto; /* center it */
+  margin: 40px auto; /* center it */
 }
 
 a:hover {

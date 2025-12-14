@@ -28,7 +28,7 @@
     <section class="hero-section">    
         <div class="text">
             <h1>Machine Design</h1>
-            <p>This week focused on designing and building a machine from scratch. The project involves creating a multi-axis system that can perform automated tasks, utilizing stepper motors, custom mechanical components, and integrated control systems. This assignment brings together skills from previous weeks including 3D printing, CNC machining, microcontroller programming, and mechanical design to create a complete automated system.</p>
+            <p>This week, our team (Alex, AJ, Faith, Victor) worked together to create an automatic Zen Garden from scratch! Utilizing 3D printed gears, a laser cut frame, and two stepper motors, we were able to create 2 axis machine that draws paths on sand using a metal bearing.</p>
         </div>
     </section>
 
@@ -36,60 +36,48 @@
     <section class="hero-section">    
         <div class="text">
             <h1>Brainstorming</h1>
-            <p>Describe the brainstorming process for your machine design. Explain what type of machine you decided to build and why. Discuss the initial concepts, design constraints, and how you arrived at your final design. Include details about the machine's purpose, the tasks it performs, and what makes it unique or interesting.</p>
+            <p>At the beginning of the project, our group already decided that we wanted to make something different, free from the constraints of the provided 2-axis gantry kit. We were immediately drawn to these automatic zen garden kinetic sculptures, which seemed quite simple to make despite the hundred dollar price tag. We thought that controlling the steel ball below the wood surface was a unique mechanism that was perfect for this weeks assignmnent.</p>
         </div>
     </section>
 
-    <div class="gallery-center">
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_sketches.webp">
-                    <img src="../images/week10_sketches.webp" alt="Initial Sketches">
-                </a>
-                <div class="desc">Initial Design Sketches</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_concept.webp">
-                    <img src="../images/week10_concept.webp" alt="Concept Design">
-                </a>
-                <div class="desc">Concept Design</div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
     <div class="divider"></div>
 
-    <!-- DESIGN PROCESS -->
+    <!-- EARLY PROTOTYPES -->
     <section class="hero-section">    
         <div class="text">
-            <h1>Design Process</h1>
-            <p>Document your design process, including CAD modeling, mechanical calculations, and design iterations. Explain the mechanical system (gears, belts, lead screws, linkages, etc.), the number of axes of motion, and how the machine achieves its intended function. Include details about design decisions, trade-offs, and how you optimized the design for fabrication and assembly.</p>
+            <h1>Early Prototypes</h1>
+            <p>We knew that we would have to use a stepper motor to control the rotational axis and another to control the linear axis. We immediately settled on a lead screw and traveler mechanism.</p>
+            <p style="margin-top: 20px;">Our design was centered around the lazy susan bearing.</p>
+            <p style="margin-top: 20px;">Our early prototyping began with the most complex part. We decided to create the piece that would mount to one side of the bearing and carry the linear axis. We also created the magnet carrier that would go on the lead screw.</p>
+            <p style="margin-top: 20px;">By using a internal gear, we can increase the resolution of the rotational axis beyond microstepping. This stage was also where we fine tuned mounting the stepper mounts and tolerances for the guide rail and linear bearings.</p>
+            <p style="margin-top: 20px;">However, our initial designs had some drawbacks.</p>
+            <p style="margin-top: 20px;">In order to extend our range of motion, we had to seperate our mechanism into several parts due to the limited size of the printer beds.</p>
+            <p style="margin-top: 20px;">However, we realized that rotating around the center of our lead screw was inefficient/redundant. In our third iteration, we put the end of the lead screw at the center of our assembly, effectively doubling the radius of our movement.</p>
+            <p style="margin-top: 20px;">At this point, we also assembled a base to hold the slip ring (which makes it possible for the wires to spin) and the stepper motor and spur gear for rotational movement.</p>
         </div>
     </section>
 
     <div class="gallery-center">
-        <div class="responsive">
+        <div class="responsive" style="max-width: 500px;">
             <div class="gallery">
-                <a target="_blank" href="../images/week10_cad1.webp">
-                    <img src="../images/week10_cad1.webp" alt="CAD Design View 1">
+                <a target="_blank" href="../images/earlydesign1.webp">
+                    <img src="../images/earlydesign1.webp" alt="Early Design 1" style="object-fit: contain; aspect-ratio: auto; height: auto;">
                 </a>
                 <div class="desc">CAD Design View 1</div>
             </div>
         </div>
-        <div class="responsive">
+        <div class="responsive" style="max-width: 500px;">
             <div class="gallery">
-                <a target="_blank" href="../images/week10_cad2.webp">
-                    <img src="../images/week10_cad2.webp" alt="CAD Design View 2">
+                <a target="_blank" href="../images/earlydesign2.webp">
+                    <img src="../images/earlydesign2.webp" alt="Early Design 2" style="object-fit: contain; aspect-ratio: auto; height: auto;">
                 </a>
                 <div class="desc">CAD Design View 2</div>
             </div>
         </div>
-        <div class="responsive">
+        <div class="responsive" style="max-width: 500px;">
             <div class="gallery">
-                <a target="_blank" href="../images/week10_assembly.webp">
-                    <img src="../images/week10_assembly.webp" alt="Assembly View">
+                <a target="_blank" href="../images/earlydesign3.webp">
+                    <img src="../images/earlydesign3.webp" alt="Assembly View" style="object-fit: contain; aspect-ratio: auto; height: auto;">
                 </a>
                 <div class="desc">Assembly View</div>
             </div>
@@ -98,284 +86,12 @@
     <div class="clearfix"></div>
     <div class="divider"></div>
 
-    <!-- FABRICATION -->
-    <section class="hero-section">    
-        <div class="text">
-            <h1>Fabrication</h1>
-            <p>Describe the fabrication process for your machine components. Document the use of 3D printing, laser cutting, CNC machining, or other fabrication methods. Include details about material selection, print settings, machining parameters, and any post-processing steps. Show the progression from raw materials to finished components.</p>
-        </div>
-    </section>
-
-    <div class="gallery-center">
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_3dprint.webp">
-                    <img src="../images/week10_3dprint.webp" alt="3D Printed Components">
-                </a>
-                <div class="desc">3D Printed Components</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_lasercut.webp">
-                    <img src="../images/week10_lasercut.webp" alt="Laser Cut Frame">
-                </a>
-                <div class="desc">Laser Cut Frame</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_cnc.webp">
-                    <img src="../images/week10_cnc.webp" alt="CNC Machined Parts">
-                </a>
-                <div class="desc">CNC Machined Parts</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_components.webp">
-                    <img src="../images/week10_components.webp" alt="All Components">
-                </a>
-                <div class="desc">All Fabricated Components</div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="divider"></div>
-
-    <!-- ASSEMBLY -->
-    <section class="hero-section">    
-        <div class="text">
-            <h1>Assembly</h1>
-            <p>Document the assembly process of your machine. Explain how components fit together, the order of assembly, and any challenges encountered during assembly. Include details about mounting motors, installing bearings, aligning axes, and securing components. Show the progression from individual parts to the complete assembled machine.</p>
-        </div>
-    </section>
-
-    <div class="gallery-center">
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_assembly1.webp">
-                    <img src="../images/week10_assembly1.webp" alt="Assembly Step 1">
-                </a>
-                <div class="desc">Assembly Step 1</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_assembly2.webp">
-                    <img src="../images/week10_assembly2.webp" alt="Assembly Step 2">
-                </a>
-                <div class="desc">Assembly Step 2</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_assembly3.webp">
-                    <img src="../images/week10_assembly3.webp" alt="Assembly Step 3">
-                </a>
-                <div class="desc">Assembly Step 3</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_complete.webp">
-                    <img src="../images/week10_complete.webp" alt="Complete Machine">
-                </a>
-                <div class="desc">Complete Assembled Machine</div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="divider"></div>
-
-    <!-- ELECTRONICS AND WIRING -->
-    <section class="hero-section">    
-        <div class="text">
-            <h1>Electronics and Wiring</h1>
-            <p>Document the electronics setup and wiring for your machine. Describe the microcontroller, motor drivers, power supply, and any sensors or input devices. Include details about the wiring diagram, power distribution, and how signals are routed between components. Explain any challenges with power requirements, signal integrity, or cable management.</p>
-        </div>
-    </section>
-
-    <div class="gallery-center">
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_schematic.webp">
-                    <img src="../images/week10_schematic.webp" alt="Circuit Schematic">
-                </a>
-                <div class="desc">Circuit Schematic</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_wiring.webp">
-                    <img src="../images/week10_wiring.webp" alt="Wiring Setup">
-                </a>
-                <div class="desc">Wiring Setup</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_electronics.webp">
-                    <img src="../images/week10_electronics.webp" alt="Electronics Layout">
-                </a>
-                <div class="desc">Electronics Layout</div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="divider"></div>
-
-    <!-- PROGRAMMING -->
-    <section class="hero-section">    
-        <div class="text">
-            <h1>Programming and Control</h1>
-            <p>Describe the programming approach for controlling your machine. Explain how you coordinate multiple axes, handle motion planning, and implement the machine's core functionality. Include details about stepper motor control, acceleration profiles, homing sequences, and any user interface or input methods.</p>
-        </div>
-    </section>
-
-    <div class="code-block">
-        <div class="code-title">Machine Control Code</div>
-        <pre><code>// --- Libraries ---                          
-#include <Arduino.h>                           // Core Arduino functions
-#include <AccelStepper.h>                     // Stepper motor library
-
-// --- Pin Assignments ---                     
-#define STEPPER1_STEP_PIN 12                  // Stepper 1 step pin
-#define STEPPER1_DIR_PIN 14                   // Stepper 1 direction pin
-#define STEPPER2_STEP_PIN 13                  // Stepper 2 step pin
-#define STEPPER2_DIR_PIN 15                   // Stepper 2 direction pin
-
-// --- Constants ---                           
-const float MAX_SPEED = 1000.0;               // Maximum speed (steps/sec)
-const float ACCELERATION = 500.0;             // Acceleration (steps/sec²)
-const long STEPS_PER_REV = 200;               // Steps per revolution
-
-// --- StepperMotor Class ---                  
-class StepperMotor {                          // Begin class definition
-private:                                        // Private: internal details
-    AccelStepper* stepper;                      // Pointer to AccelStepper
-    int stepPin;                                 // Step pin number
-    int dirPin;                                  // Direction pin number
-    bool isHomed;                                // Homing status
-    
-public:                                         // Public: external interface
-    // Constructor                                
-    StepperMotor(int step, int dir)             // Constructor parameters
-    : stepPin(step), dirPin(dir), isHomed(false) { // Member initializer list
-        stepper = new AccelStepper(AccelStepper::DRIVER, stepPin, dirPin); // Create stepper
-        stepper->setMaxSpeed(MAX_SPEED);        // Set max speed
-        stepper->setAcceleration(ACCELERATION); // Set acceleration
-    }                                             // End constructor
-    
-    // Initialize the stepper motor                
-    void initialize() {                           // Begin initialize method
-        Serial.print("Stepper initialized on pins "); // Log label
-        Serial.print(stepPin);                    // Log step pin
-        Serial.print(", ");                       // Log separator
-        Serial.println(dirPin);                   // Log dir pin
-    }                                             // End initialize
-    
-    // Home the motor (example implementation)      
-    void home() {                                 // Begin home method
-        // Implement homing sequence here
-        // Move to limit switch or sensor
-        isHomed = true;                           // Mark as homed
-        Serial.println("Motor homed");           // Log homing
-    }                                             // End home
-    
-    // Move to absolute position                   
-    void moveTo(long position) {                  // Begin moveTo method
-        stepper->moveTo(position);                // Set target position
-    }                                             // End moveTo
-    
-    // Move relative distance                      
-    void move(long distance) {                    // Begin move method
-        stepper->move(distance);                  // Set relative move
-    }                                             // End move
-    
-    // Update motor (call in loop)                 
-    void update() {                               // Begin update method
-        stepper->run();                           // Update stepper position
-    }                                             // End update
-    
-    // Check if motor is at target                 
-    bool isAtTarget() const {                     // Begin isAtTarget method
-        return stepper->distanceToGo() == 0;     // Return true if at target
-    }                                             // End isAtTarget
-};                                              // End class
-
-// --- MachineController Class ---              
-class MachineController {                      // Begin class definition
-private:                                        // Private: internal details
-    StepperMotor* axis1;                        // Pointer to axis 1 motor
-    StepperMotor* axis2;                         // Pointer to axis 2 motor
-    unsigned long lastUpdateTime;                // Timestamp of last update
-    
-public:                                         // Public: external interface
-    // Constructor                                
-    MachineController(StepperMotor* motor1, StepperMotor* motor2)
-    : axis1(motor1), axis2(motor2) {             // Member initializer list
-        lastUpdateTime = 0;                       // Initialize timer
-    }                                             // End constructor
-    
-    // Initialize the machine                      
-    void initialize() {                           // Begin initialize method
-        axis1->initialize();                     // Initialize axis 1
-        axis2->initialize();                     // Initialize axis 2
-        axis1->home();                           // Home axis 1
-        axis2->home();                           // Home axis 2
-        Serial.println("Machine initialized");   // Log init
-    }                                             // End initialize
-    
-    // Execute a pattern or task                    
-    void executePattern() {                       // Begin executePattern method
-        // Example: Move in a pattern
-        axis1->moveTo(1000);                     // Move axis 1
-        axis2->moveTo(500);                      // Move axis 2
-        
-        // Wait for both to complete
-        while (!axis1->isAtTarget() || !axis2->isAtTarget()) { // While moving
-            axis1->update();                      // Update axis 1
-            axis2->update();                      // Update axis 2
-        }                                         // End movement loop
-        
-        Serial.println("Pattern complete");      // Log completion
-    }                                             // End executePattern
-    
-    // Main update method - call this in loop()     
-    void update() {                               // Begin update
-        axis1->update();                         // Update axis 1
-        axis2->update();                         // Update axis 2
-    }                                             // End update
-};                                              // End class
-
-// --- Global Variables ---                      
-StepperMotor motor1(STEPPER1_STEP_PIN, STEPPER1_DIR_PIN); // Create motor 1
-StepperMotor motor2(STEPPER2_STEP_PIN, STEPPER2_DIR_PIN); // Create motor 2
-MachineController machine(&motor1, &motor2);    // Create machine controller
-
-// --- Setup Function ---                       
-void setup() {                                  // Begin setup
-    Serial.begin(115200);                         // Start serial
-    delay(1000);                                 // Wait for serial monitor
-    machine.initialize();                        // Initialize machine
-}                                               // End setup
-
-// --- Main Loop ---                            
-void loop() {                                   // Begin loop
-    machine.update();                            // Update machine
-    // Add pattern execution or control logic here
-}                                               // End loop</code></pre>
-    </div>
-
-    <div class="clearfix"></div>
-    <div class="divider"></div>
+    <!-- FINAL PRODUCT -->
 
     <!-- COMPONENTS USED -->
     <section class="hero-section">    
         <div class="text">
             <h1>Components Used</h1>
-            <p>List and describe all the components used in your machine, including mechanical parts, electronics, and materials. Provide details about specifications, quantities, and how each component contributes to the machine's functionality.</p>
         </div>
     </section>
 
@@ -392,81 +108,103 @@ void loop() {                                   // Begin loop
             </thead>
             <tbody>
                 <tr>
-                    <td>Microcontroller (ESP32/Arduino)</td>
+                    <td>ESP32 Microcontroller</td>
                     <td>1</td>
-                    <td>Model and specifications</td>
-                    <td>Main control unit</td>
+                    <td>ESP32 development board</td>
+                    <td>Used to control the stepper motors, handle input/output signals and manage programmed motions</td>
                 </tr>
                 <tr>
                     <td>Stepper Motor</td>
                     <td>2</td>
-                    <td>Torque, steps per revolution</td>
-                    <td>Axis motion control</td>
+                    <td>Standard stepper motors</td>
+                    <td>Connected to the lead screw to drive the linear motion and to the base for the circular motion</td>
                 </tr>
                 <tr>
-                    <td>Motor Driver</td>
+                    <td>Motor Drivers</td>
                     <td>2</td>
-                    <td>Current rating, model</td>
-                    <td>Stepper motor control</td>
+                    <td>Stepper motor driver modules</td>
+                    <td>Interfaces between the ESP32 and stepper motors</td>
                 </tr>
                 <tr>
-                    <td>Lead Screw / Belt / Gear</td>
-                    <td>As needed</td>
-                    <td>Pitch, length, specifications</td>
-                    <td>Motion transmission</td>
-                </tr>
-                <tr>
-                    <td>Bearings</td>
-                    <td>As needed</td>
-                    <td>Type and size</td>
-                    <td>Support and smooth motion</td>
-                </tr>
-                <tr>
-                    <td>3D Printed Components</td>
-                    <td>As needed</td>
-                    <td>Material, quantity</td>
-                    <td>Custom mechanical parts</td>
-                </tr>
-                <tr>
-                    <td>Laser Cut Frame</td>
+                    <td>Lead Screw</td>
                     <td>1</td>
-                    <td>Material, thickness</td>
-                    <td>Structural support</td>
+                    <td>Threaded rod with matching nut</td>
+                    <td>Convert rotational motion from the stepper motor into linear motion for the magnet carriage</td>
                 </tr>
                 <tr>
-                    <td>Power Supply</td>
-                    <td>1</td>
-                    <td>Voltage, current rating</td>
-                    <td>System power</td>
+                    <td>Magnet and Metal Ball</td>
+                    <td>1 each</td>
+                    <td>Neodymium magnet, steel ball bearing</td>
+                    <td>How we draw on sand through the wood platform</td>
                 </tr>
-                <!-- Add more rows as needed -->
+                <tr>
+                    <td>Lazy Susan Bearing</td>
+                    <td>1</td>
+                    <td>Rotary bearing assembly</td>
+                    <td>Allows the base to rotate smoothly</td>
+                </tr>
+                <tr>
+                    <td>3D-Printed Base</td>
+                    <td>1 set</td>
+                    <td>PLA/ABS printed parts</td>
+                    <td>Includes motor mounts and the carriage for the lead screw system</td>
+                </tr>
+                <tr>
+                    <td>Plug</td>
+                    <td>1</td>
+                    <td>DC power adapter</td>
+                    <td>Powers the motor and control electronics</td>
+                </tr>
+                <tr>
+                    <td>Breadboard and Jumper Wires</td>
+                    <td>As needed</td>
+                    <td>Standard prototyping components</td>
+                    <td>Used for circuit prototyping and connecting the ESP32 to motor drivers</td>
+                </tr>
+                <tr>
+                    <td>Wooden Circular Platform / Sand Tray</td>
+                    <td>1</td>
+                    <td>Laser cut wood</td>
+                    <td>Holds the layer of sand on which the metal ball creates patterns</td>
+                </tr>
+                <tr>
+                    <td>Wood Base</td>
+                    <td>1</td>
+                    <td>Laser cut wood</td>
+                    <td>Where the breadboards + the 3D-Printed structure is placed to keep everything together</td>
+                </tr>
+                <tr>
+                    <td>Wood Veneer</td>
+                    <td>As needed</td>
+                    <td>Thin wood veneer sheets</td>
+                    <td>Used to wrap around the base and tray of sand</td>
+                </tr>
             </tbody>
         </table>
     </div>
-
-    <div class="divider"></div>
 
     <!-- FINAL PRODUCT -->
     <section class="hero-section">    
         <div class="text">
             <h1>Final Product</h1>
-            <p>Showcase your completed machine in action. Include photos and videos demonstrating the machine performing its intended function. Highlight the key features, capabilities, and what the machine accomplishes.</p>
+            <p>Our project really began to come together after we constructed the lasercut wood frame and lid.</p>
+            <p style="margin-top: 20px;">After wiring, programming, and creating the wooden frame to hold the sand, our project is almost complete! Adding the veneer walls and sand was all we had to do!</p>
         </div>
     </section>
 
     <div class="gallery-center">
         <div class="responsive">
             <div class="gallery">
-                <a target="_blank" href="../images/week10_final1.webp">
-                    <img src="../images/week10_final1.webp" alt="Final Product View 1">
+                <a target="_blank" href="../images/finaldesign.webp">
+                    <img src="../images/finaldesign.webp" alt="Final Product View 1">
                 </a>
                 <div class="desc">Final Product View 1</div>
             </div>
         </div>
         <div class="responsive">
             <div class="gallery">
-                <a target="_blank" href="../images/week10_final2.webp">
-                    <img src="../images/week10_final2.webp" alt="Final Product View 2">
+                <a target="_blank" href="../images/finaldesign2.webp">
+                    <img src="../images/finaldesign2.webp" alt="Final Product View 2">
                 </a>
                 <div class="desc">Final Product View 2</div>
             </div>
@@ -475,27 +213,27 @@ void loop() {                                   // Begin loop
     <div class="clearfix"></div>
 
     <!-- VIDEOS GALLERY -->
-    <div class="gallery-center" style="margin-top: 60px;">
-        <div class="responsive" style="width: 37.5%; max-width: 300px;">
+    <div class="gallery-center" style="margin-top: 60px; flex-direction: column; align-items: center;">
+        <div class="responsive" style="max-width: 500px; width: 100%; float: none;">
             <div class="gallery">
-                <a target="_blank" href="../images/week10_demo.mp4">
-                    <video controls>
-                        <source src="../images/week10_demo.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </a>
-                <div class="desc">Machine Demonstration</div>
-            </div>
-        </div>
-        <div class="responsive" style="width: 37.5%; max-width: 300px;">
-            <div class="gallery">
-                <a target="_blank" href="../images/week10_pattern.mp4">
-                    <video controls>
-                        <source src="../images/week10_pattern.mp4" type="video/mp4">
+                <a target="_blank" href="../images/timelapsespiral.mp4">
+                    <video controls style="object-fit: contain; aspect-ratio: auto; height: auto; width: 100%;">
+                        <source src="../images/timelapsespiral.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </a>
                 <div class="desc">Pattern Execution</div>
+            </div>
+        </div>
+        <div class="responsive" style="max-width: 500px; width: 100%; float: none;">
+            <div class="gallery">
+                <a target="_blank" href="../images/earlydemo.mp4">
+                    <video controls style="object-fit: contain; aspect-ratio: auto; height: auto; width: 100%;">
+                        <source src="../images/earlydemo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </a>
+                <div class="desc">Machine Demonstration</div>
             </div>
         </div>
     </div>
@@ -506,7 +244,9 @@ void loop() {                                   // Begin loop
     <section class="hero-section">    
         <div class="text">
             <h1>Challenges</h1>
-            <p>Document the challenges you encountered throughout the design, fabrication, assembly, and programming phases. Discuss mechanical issues (alignment, tolerances, friction), electrical problems (power, wiring, signal integrity), software difficulties (coordination, timing, control algorithms), and how you resolved or worked around these challenges.</p>
+            <p style="margin-top: 20px;">The fabrication and assembly stages were fine for the most part. The biggest challenge we encountered here was getting a base of the desired size since we had limitations whether it's with the laser-cutter or shopbot. The main challenges were when it comes to driving the machine and wiring.</p>
+            <p style="margin-top: 20px;">We also faced wiring and power connection challenges. One of our plugs had its positive and negative terminals reversed, which fried two motor drivers. With Bobby's help, we figured what was wrong and replaced the damaged drivers (MAYBE DON'T ALWAYS TRUST LABELS), and used a multimeter to verify correct polarity before powering the system again. These steps helped prevent further electrical issues.</p>
+            <p style="margin-top: 20px;">On the software side, we struggled to find the right combination of step size, acceleration, and motor speed to minimize vibration and noise while maintaining smooth movement of the base. If the motors moved too quickly, they skipped steps and caused uneven patterns; if they moved too slowly, the drawing motion became inconsistent. After several iterations, we tuned the stepper parameters in our Arduino code to achieve a good balance between precision and smooth operation. Mechanically, friction from the traveler touching the wooden top due to the pull between the magnet and marble caused some skipped steps. If we were to redo this project, we would definetly use a stronger motor or figure out a better way to regular the height of the traveler (ie. two guide rails). We ended up switching to a smaller marble and weaker magnet to rectify this, but it isn't always perfect.</p>
         </div>
     </section>
 
@@ -517,7 +257,7 @@ void loop() {                                   // Begin loop
     <section class="hero-section">    
         <div class="text">
             <h1>Reflection</h1>
-            <p>Reflect on the machine design and building process. Discuss what you learned about mechanical design, fabrication techniques, system integration, and control systems. Consider what you would do differently if you were to redesign the machine, and how the skills and knowledge gained from this project will inform your final project or future work.</p>
+            <p>We had a lot of fun making this project, as stressful as it was. No all nighters though so we'll take it!</p>
         </div>
     </section>
 

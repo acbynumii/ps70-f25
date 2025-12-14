@@ -28,7 +28,7 @@
     <section class="hero-section">    
         <div class="text">
             <h1>Minimum Viable Product (MVP)</h1>
-            <p>This week focused on creating a Minimum Viable Product (MVP) for the most challenging aspect of my final project. The project integrates at least one input device and one output device, includes a custom housing or enclosure, and uses a microcontroller program with C++ class structure while avoiding the delay() function. This MVP represents a serious attempt at tackling the core technical challenges of the final project.</p>
+            <p>This week focused on creating a Minimum Viable Product (MVP) for the most challenging aspect of my final project. The project uses a microcontroller program with C++ class structure while avoiding the delay() function. This MVP represents a serious attempt at tackling the core technical challenges of the final project.</p>
         </div>
     </section>
 
@@ -36,108 +36,18 @@
     <section class="hero-section">    
         <div class="text">
             <h1>Project Overview</h1>
-            <p>Describe your MVP project here. Explain what the most challenging/intimidating aspect of your final project is and how this MVP addresses it. Include details about the input and output devices you're using, the housing/enclosure design, and how the C++ class structure helps organize your code.</p>
+            <p>My SCARA MVP was all about getting the first DoF (Degree of Freedom) working smoothly, and the hardest part ended up being the mechanical tolerances since I designed the whole robot myself. The 3D printed parts had multiple iterations usually because either the assembly process was difficult or there was some unexpected friction, and figuring out how to get the most out of the rotary bearing took a few tries too. Even though my MVP didn’t reach the point I originally wanted, I made a lot of progress afterward, and working through those issues made the whole thing feel worthwhile.</p>
         </div>
     </section>
 
     <!-- PHOTOS GALLERY -->
     <div class="gallery-center">
-        <div class="responsive">
+        <div class="responsive" style="width: 50%; max-width: 600px;">
             <div class="gallery">
                 <a target="_blank" href="../images/week7_setup.webp">
                     <img src="../images/week7_setup.webp" alt="MVP Setup">
                 </a>
                 <div class="desc">MVP Setup</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week7_enclosure.webp">
-                    <img src="../images/week7_enclosure.webp" alt="Enclosure Design">
-                </a>
-                <div class="desc">Enclosure/Housing Design</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week7_schematic.webp">
-                    <img src="../images/week7_schematic.webp" alt="Circuit Schematic">
-                </a>
-                <div class="desc">Circuit Schematic</div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-
-    <!-- VIDEOS GALLERY -->
-    <div class="gallery-center" style="margin-top: 60px;">
-        <div class="responsive" style="width: 37.5%; max-width: 300px;">
-            <div class="gallery">
-                <a target="_blank" href="../images/week7_demo.mp4">
-                    <video controls>
-                        <source src="../images/week7_demo.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </a>
-                <div class="desc">MVP Demonstration</div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="divider"></div>
-
-    <!-- INPUT/OUTPUT DEVICES -->
-    <section class="hero-section">    
-        <div class="text">
-            <h1>Input and Output Devices</h1>
-            <p>Describe the input device(s) you're using (e.g., sensors, buttons, switches) and how they interface with your microcontroller. Then describe the output device(s) (e.g., motors, LEDs, displays, actuators) and how they respond to the input signals. Explain the integration between these devices and how they work together in your MVP.</p>
-        </div>
-    </section>
-
-    <div class="gallery-center">
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week7_input.webp">
-                    <img src="../images/week7_input.webp" alt="Input Device">
-                </a>
-                <div class="desc">Input Device</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week7_output.webp">
-                    <img src="../images/week7_output.webp" alt="Output Device">
-                </a>
-                <div class="desc">Output Device</div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="divider"></div>
-
-    <!-- ENCLOSURE/HOUSING -->
-    <section class="hero-section">    
-        <div class="text">
-            <h1>Housing and Enclosure</h1>
-            <p>Describe your housing or enclosure design. Explain the design considerations, materials used, fabrication method (3D printing, laser cutting, CNC, etc.), and how it protects and organizes your components. Include details about any mounting points, access panels, or other design features.</p>
-        </div>
-    </section>
-
-    <div class="gallery-center">
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week7_housing_design.webp">
-                    <img src="../images/week7_housing_design.webp" alt="Housing CAD Design">
-                </a>
-                <div class="desc">Housing CAD Design</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="../images/week7_housing_fabricated.webp">
-                    <img src="../images/week7_housing_fabricated.webp" alt="Fabricated Housing">
-                </a>
-                <div class="desc">Fabricated Housing</div>
             </div>
         </div>
     </div>
@@ -148,139 +58,47 @@
     <section class="hero-section">    
         <div class="text">
             <h1>Microcontroller Program Implementation</h1>
-            <p>Below is the complete microcontroller code that implements the MVP using C++ class structure. The code avoids the delay() function and uses timer-based approaches for responsive operation. The class structure helps organize the code and makes it more maintainable and reusable.</p>
+            <p>Below is the complete microcontroller code that was used in the the MVP demo./</p>
         </div>
     </section>
 
     <div class="code-block">
-        <div class="code-title">MVP Microcontroller Code with C++ Classes</div>
-        <pre><code>// --- Libraries ---                          
-#include <Arduino.h>                           // Core Arduino functions
-
-// --- Pin Assignments ---                     
-#define INPUT_PIN 34                           // Input device pin
-#define OUTPUT_PIN 12                          // Output device pin
-
-// --- Constants ---                           
-const unsigned long UPDATE_INTERVAL = 50;      // Update interval in ms
-const int THRESHOLD = 512;                     // Example threshold value
-
-// --- InputDevice Class ---                   
-class InputDevice {                            // Begin class definition
-private:                                        // Private: internal details
-    int pin;                                     // Input pin number
-    int lastValue;                               // Last read value
-    unsigned long lastReadTime;                  // Timestamp of last read
-    
-public:                                         // Public: external interface
-    // Constructor                                
-    InputDevice(int inputPin) : pin(inputPin) { // Member initializer list
-        lastValue = 0;                           // Initialize value
-        lastReadTime = 0;                        // Initialize timer
-    }                                             // End constructor
-    
-    // Initialize the input device                
-    void initialize() {                           // Begin initialize method
-        pinMode(pin, INPUT);                     // Set pin as input
-        Serial.println("InputDevice initialized"); // Log init
-    }                                             // End initialize
-    
-    // Read the input value (non-blocking)        
-    int read() {                                  // Begin read method
-        unsigned long currentTime = millis();     // Get current time
-        if (currentTime - lastReadTime >= UPDATE_INTERVAL) { // If time to read
-            lastValue = analogRead(pin);          // Read analog value
-            lastReadTime = currentTime;           // Update timestamp
-        }                                         // End timing check
-        return lastValue;                         // Return last value
-    }                                             // End read
-    
-    // Get the last read value                    
-    int getValue() const { return lastValue; }    // Return last value
-};                                              // End class
-
-// --- OutputDevice Class ---                  
-class OutputDevice {                           // Begin class definition
-private:                                        // Private: internal details
-    int pin;                                     // Output pin number
-    int currentState;                            // Current output state
-    unsigned long lastUpdateTime;                // Timestamp of last update
-    
-public:                                         // Public: external interface
-    // Constructor                                
-    OutputDevice(int outputPin) : pin(outputPin) { // Member initializer list
-        currentState = LOW;                       // Initialize state
-        lastUpdateTime = 0;                       // Initialize timer
-    }                                             // End constructor
-    
-    // Initialize the output device                
-    void initialize() {                           // Begin initialize method
-        pinMode(pin, OUTPUT);                    // Set pin as output
-        digitalWrite(pin, LOW);                  // Set initial state
-        Serial.println("OutputDevice initialized"); // Log init
-    }                                             // End initialize
-    
-    // Set the output state                       
-    void setState(int state) {                    // Begin setState method
-        currentState = state;                     // Update state
-        digitalWrite(pin, state);                 // Apply to pin
-    }                                             // End setState
-    
-    // Get the current state                       
-    int getState() const { return currentState; } // Return current state
-};                                              // End class
-
-// --- MVPController Class ---                 
-class MVPController {                          // Begin class definition
-private:                                        // Private: internal details
-    InputDevice* input;                          // Pointer to input device
-    OutputDevice* output;                        // Pointer to output device
-    int threshold;                               // Threshold for activation
-    
-public:                                         // Public: external interface
-    // Constructor                                
-    MVPController(InputDevice* in, OutputDevice* out, int thresh = THRESHOLD)
-    : input(in), output(out), threshold(thresh) { // Member initializer list
-    }                                             // End constructor
-    
-    // Initialize the controller                  
-    void initialize() {                           // Begin initialize method
-        input->initialize();                      // Initialize input
-        output->initialize();                     // Initialize output
-        Serial.println("MVPController initialized"); // Log init
-    }                                             // End initialize
-    
-    // Main update method - call this in loop()    
-    void update() {                               // Begin update
-        int inputValue = input->read();            // Read input device
-        Serial.print("Input value: ");            // Log label
-        Serial.println(inputValue);               // Log value
-        
-        // Control output based on input           
-        if (inputValue > threshold) {             // If above threshold
-            output->setState(HIGH);                // Activate output
-        } else {                                   // Otherwise
-            output->setState(LOW);                 // Deactivate output
-        }                                         // End condition
-    }                                             // End update
-};                                              // End class
-
-// --- Global Variables ---                      
-InputDevice inputDevice(INPUT_PIN);            // Create input device
-OutputDevice outputDevice(OUTPUT_PIN);         // Create output device
-MVPController controller(&inputDevice, &outputDevice, THRESHOLD); // Create controller
-
-// --- Setup Function ---                       
-void setup() {                                  // Begin setup
-    Serial.begin(115200);                         // Start serial
-    controller.initialize();                     // Initialize controller
-}                                               // End setup
-
-// --- Main Loop ---                            
-void loop() {                                   // Begin loop
-    controller.update();                         // Periodically run controller
-    // No delay() function used!                 // Note: non-blocking
-}                                               // End loop</code></pre>
+        <div class="code-title">MVP Microcontroller Code</div>
+        <pre><code>// --- Libraries ---
+            #include &lt;Arduino.h&gt;
+            
+            // --- Pin Assignments ---
+            #define STEP_PIN 12   // Step signal
+            #define DIR_PIN 14    // Direction signal
+            
+            // --- Constants ---
+            const unsigned long STEP_DELAY_MS = 10;     // Time between steps (ms)
+            
+            unsigned long lastStepTime = 0;
+            
+            void setup() {
+              Serial.begin(115200);
+            
+              pinMode(STEP_PIN, OUTPUT);
+              pinMode(DIR_PIN, OUTPUT);
+            
+              digitalWrite(DIR_PIN, HIGH);  // Set direction (change to LOW to reverse)
+              digitalWrite(STEP_PIN, LOW);
+            
+              Serial.println("Starting continuous rotation...");
+            }
+            
+            void loop() {
+              unsigned long now = millis();
+            
+              // Step at the configured cadence (runs continuously)
+              if (now - lastStepTime >= STEP_DELAY_MS) {
+                digitalWrite(STEP_PIN, HIGH);
+                delayMicroseconds(2);       // Step pulse width (adjust if needed)
+                digitalWrite(STEP_PIN, LOW);
+                lastStepTime = now;
+              }
+            }</code></pre>
     </div>
 
     <div class="clearfix"></div>
@@ -290,7 +108,7 @@ void loop() {                                   // Begin loop
     <section class="hero-section">    
         <div class="text">
             <h1>Challenges and Reflection</h1>
-            <p>Describe the challenges you encountered while building your MVP, including technical difficulties, design issues, or integration problems. Reflect on what you learned from this process and how it will inform your final project development. Discuss any iterations or improvements you made along the way.</p>
+            <p>While building my MVP, the biggest challenges came from the mechanical design and how everything integrated together since I was designing the robot from scratch. Tolerancing was a major issue, and I went through several iterations of 3D printed parts because things either did not fit correctly, were difficult to assemble, or had unexpected friction. I also had trouble properly integrating the rotary bearing, and it took a few design revisions to get it positioned and working smoothly. Through this process, I learned how important it is to think about manufacturing limits early on and to design around critical components from the beginning. Even though my MVP did not reach my original goal, the iterations I made helped me refine the design, make solid progress afterward, and build a much stronger foundation for the final version of the project.</p>
         </div>
     </section>
 

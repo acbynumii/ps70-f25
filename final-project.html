@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+
+    <title>PS70: Final Project</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="left">
+            <a href="index.html">PS70 Fall 2025</a>
+        </div>
+        <div class="right">
+            <a href="index.html">About Me</a>
+            <a href="final-project.html">Final Project</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Final Project: The SCARA Robotic Arm</h1>
+            <p>This is my final project for PS70: Introduction to Digital Fabrication. The project represents the culmination of skills learned throughout the course, integrating mechanical design, electronics, programming, and fabrication techniques.</p>
+        </div>
+    </section>
+
+    <!-- INSPIRATION -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Inspiration</h1>
+            <p>Originally, I wanted to make Dum-E from Iron Man. However, I realized that there were no good precedents for this project. Bobby, bless his heart, suggested I make a robotic arm, and as a result, this project was inspired by a YouTube video that demonstrated a compact, DIY SCARA-style robotic arm. Seeing how a relatively simple mechanical design could achieve precise and useful motion motivated me to design my own version from scratch. The project was especially interesting because it combines mechanical design, electronics, and software into a single integrated system rather than relying on a prebuilt kit.</p>
+        </div>
+    </section>
+
+    <div class="gallery-center" style="margin: 30px 0;">
+        <div style="max-width: 800px; width: 100%;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                    src="https://www.youtube.com/embed/1QHJksTrk8s" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- DEMO VIDEO -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Demo Video</h1>
+        </div>
+    </section>
+
+    <div class="gallery-center" style="margin: 30px 0;">
+        <div class="gallery" style="border: 1px solid #ccc; display: inline-block; width: auto;">
+            <video controls style="width: auto; height: auto; max-width: 100%; aspect-ratio: auto; object-fit: contain; display: block;">
+                <source src="images/SCARA_Demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="desc">Final Project Demonstration</div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <section class="hero-section">    
+        <div class="text">
+            <h2>Robot Overview and Controls</h2>
+            <p>The robot is a SCARA-style arm designed for planar motion with vertical actuation and an end-effector for grasping. It has multiple degrees of freedom, including base rotation, Z-axis vertical movement, end-effector rotation, and a servo-driven claw. Mechanically, the robot is largely 3D printed and uses stepper motors for precise joint control, along with a rotary bearing to support smooth base rotation. The system architecture centers around an ESP32 microcontroller, which handles Bluetooth communication, motor control through stepper drivers, and servo actuation. Together, this allows the robot to perform basic pick-and-place style motions and respond in real time to user input.</p>
+            <p style="margin-top: 20px;"><strong>Controls:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>‘w’ – Move the Z-axis up</li>
+                <li>‘s’ – Move the Z-axis down</li>
+                <li>‘a’ – Rotate the base counter-clockwise</li>
+                <li>‘d’ – Rotate the base clockwise</li>
+                <li>‘z’ – Rotate the end-effector counter-clockwise</li>
+                <li>‘x’ – Rotate the end-effector clockwise</li>
+                <li>‘o’ – Open the claw</li>
+                <li>‘c’ – Close the claw</li>
+                <li><strong>Spacebar</strong> – Stop all motion</li>
+            </ul>
+            <p style="margin-top: 20px;">These controls are sent wirelessly over Bluetooth or through the wire and interpreted by the ESP32 as motion commands. The inputs work together to give full manual control of the robot’s position and orientation. A built-in limit switch on the Z-axis acts as a safety feature, preventing the arm from moving beyond its physical limits and protecting the hardware during operation.</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CODE SECTION -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Code Implementation</h1>
+            <p>Below is the complete microcontroller code that powers the final project. The code demonstrates the integration of all systems including motor control, sensor input, and communication protocols.</p>
+        </div>
+    </section>
+
+    <div style="display: flex; gap: 20px; max-width: 1400px; margin: 20px auto; flex-wrap: wrap;">
+        <div class="code-block" style="flex: 1; min-width: 300px;">
+            <div class="code-title">Final Project Code</div>
+            <pre><code>/*
+Keyboard Control
+Controls z-axis stepper motor via serial input
+'w' - Move up
+'s' - Move down
+'d' - Base Rotates CW
+'a' - Base Rotates CCW
+'c' - Claw closes
+'o' - Claw opens
+'x' - Servo Rotates CW
+'z' - Servo Rotates CCW
+*/
+
+#include &lt;AccelStepper.h&gt;
+#include &lt;ESP32Servo.h&gt;
+#include &lt;ESP32PWM.h&gt;
+
+// Pin Assignments
+#define STEP_PIN_Z 26   // Z-axis step signal
+#define DIR_PIN_Z 25    // Z-axis direction signal
+#define STEP_PIN_S 16
+#define DIR_PIN_S 17
+#define STEP_PIN_B 12   // Base rotation step signal
+#define DIR_PIN_B 14    // Base rotation direction signal
+#define limit_switch_NO 21  // Z-axis limit switch
+
+// Define the z-axis stepper motor
+AccelStepper stepperZ(1, STEP_PIN_Z, DIR_PIN_Z);  // (Type:driver, STEP, DIR)
+AccelStepper stepperS(1, STEP_PIN_S, DIR_PIN_S);  // End-effector stepper
+AccelStepper stepperB(1, STEP_PIN_B, DIR_PIN_B);  // Base rotation stepper
+
+// Movement parameters
+const int moveSpeed = 1000;  // Steps per second when moving
+long currPositionZ = 0;
+long currPositionS = 0;
+long currPositionB = 0;
+char lastCommand = 0;        // Track last command received
+
+Servo myservo;  // create servo object to control a servo
+int pos = 0;    // variable to store the servo position
+int servoPin = 5;
+
+// Check if limit switch is pressed
+bool isLimitSwitchPressed() {
+return digitalRead(limit_switch_NO) == LOW;
+}
+
+void setup() {
+Serial.begin(115200);
+pinMode(STEP_PIN_S, OUTPUT);
+pinMode(DIR_PIN_S, OUTPUT);
+digitalWrite(STEP_PIN_S, LOW);
+digitalWrite(DIR_PIN_S, LOW);
+
+// Configure limit switch
+pinMode(limit_switch_NO, INPUT_PULLUP);
+
+// Configure stepper motor
+stepperZ.setMaxSpeed(500);
+stepperZ.setAcceleration(200);
+stepperZ.setSpeed(0);  // Start stopped
+
+stepperS.setMaxSpeed(800);  // Reduced speed for smoother movement
+stepperS.setAcceleration(200);  // Reduced acceleration for smoother, less jerky movement
+stepperS.setSpeed(0);
+
+stepperB.setMaxSpeed(50);
+stepperB.setAcceleration(10);
+stepperB.setSpeed(0);
+
+// Allow allocation of all timers
+ESP32PWM::allocateTimer(0);
+ESP32PWM::allocateTimer(1);
+ESP32PWM::allocateTimer(2);
+ESP32PWM::allocateTimer(3);
+
+myservo.setPeriodHertz(50);    // standard 50 hz servo
+myservo.attach(servoPin, 1000, 2000); // attaches the servo on servoPin
+
+// Initialize servo to open position (0 degrees)
+pos = 0;
+myservo.write(pos);
+delay(500);  // Give servo time to reach open position
+
+}
+
+void loop() {
+// Check for serial commands
+if (Serial.available()) {
+    char command = Serial.read();
+    
+    if (command == 'w') {
+    // Move up - check limit switch first, disable 'w' if limit switch is pressed
+    if (!isLimitSwitchPressed()) {
+        currPositionZ -= 20;
+        stepperZ.moveTo(currPositionZ);
+        lastCommand = 'w';
+    } else {
+        // Limit switch pressed - stop immediately by setting target to current position
+        stepperZ.moveTo(stepperZ.currentPosition());
+        currPositionZ = stepperZ.currentPosition();
+        lastCommand = 0;
+    }
+    }
+    else if (command == 's') {
+    currPositionZ += 20;
+    // Move down
+    stepperZ.moveTo(currPositionZ);  // Negative speed for down
+    lastCommand = 's';
+    }
+    else if (command == 'a') {
+    // Base rotate counter-clockwise
+    currPositionB -= 20;
+    stepperB.moveTo(currPositionB);
+    lastCommand = 'a';
+    }
+    else if (command == 'd') {
+    // Base rotate clockwise
+    currPositionB += 20;
+    stepperB.moveTo(currPositionB);
+    lastCommand = 'd';
+    }
+    else if (command == 'z') {
+    // End-effector rotate counter-clockwise (microstepped for smooth movement)
+    currPositionS -= 100;  // Reduced from 10 to 2 for microstepping
+    stepperS.moveTo(currPositionS);
+    lastCommand = 'z';
+    }
+    else if (command == 'x') {
+    // End-effector rotate clockwise (microstepped for smooth movement)
+    currPositionS += 100;  // Reduced from 10 to 2 for microstepping
+    stepperS.moveTo(currPositionS);
+    lastCommand = 'x';
+    }
+    else if (command == 'o') {
+    // Close servo - goes from 0 degrees to 180 degrees
+    for (pos = 0; pos <= 180; pos += 3) {
+        myservo.write(pos);    // tell servo to go to position in variable 'pos'
+        delay(5);             // waits 5ms for the servo to reach the position
+    }
+    }
+    else if (command == 'c') {
+    // Open servo - goes from 180 degrees to 0 degrees
+    for (pos = 180; pos >= 0; pos -= 3) {
+        myservo.write(pos);    // tell servo to go to position in variable 'pos'
+        delay(5);             // waits 5ms for the servo to reach the position
+    }
+    }
+    else if (command == ' ') {
+    // Stop (spacebar or any other key stops movement)
+    // Immediately stop all steppers and sync positions
+    stepperZ.stop();
+    stepperS.stop();
+    stepperB.stop();
+    // Sync position variables with actual positions to prevent any movement
+    currPositionZ = stepperZ.currentPosition();
+    currPositionS = stepperS.currentPosition();
+    currPositionB = stepperB.currentPosition();
+    lastCommand = 0;
+    }
+}
+else {
+    // If no new command, continue with last command
+    // This allows continuous movement while key is held
+    // Only update target when stepper is close to current target to prevent shaking
+    if (lastCommand == 'w') {
+    // Check limit switch before continuing up movement
+    if (!isLimitSwitchPressed() && abs(stepperZ.distanceToGo()) < 40) {
+        currPositionZ -= 20;
+        stepperZ.moveTo(currPositionZ);
+    } else if (isLimitSwitchPressed()) {
+        // Limit switch pressed - stop immediately by setting target to current position
+        stepperZ.moveTo(stepperZ.currentPosition());
+        currPositionZ = stepperZ.currentPosition();
+        lastCommand = 0;
+    }
+    }
+    else if (lastCommand == 's' && abs(stepperZ.distanceToGo()) < 40) {
+    currPositionZ += 20;
+    stepperZ.moveTo(currPositionZ);
+    }
+    else if (lastCommand == 'a' && abs(stepperB.distanceToGo()) < 40) {
+    currPositionB -= 20;
+    stepperB.moveTo(currPositionB);
+    }
+    else if (lastCommand == 'd' && abs(stepperB.distanceToGo()) < 40) {
+    currPositionB += 20;
+    stepperB.moveTo(currPositionB);
+    }
+    else if (lastCommand == 'z' && abs(stepperS.distanceToGo()) < 40) {
+    currPositionS -= 100;  // Reduced from 10 to 2 for microstepping
+    stepperS.moveTo(currPositionS);
+    }
+    else if (lastCommand == 'x' && abs(stepperS.distanceToGo()) < 40) {
+    currPositionS += 100;  // Reduced from 10 to 2 for microstepping
+    stepperS.moveTo(currPositionS);
+    }
+}
+
+// Check limit switch and stop z-axis immediately if pressed while moving up
+if (isLimitSwitchPressed() && (lastCommand == 'w' || stepperZ.distanceToGo() < 0)) {
+    // Stop immediately by setting target to current positionw
+
+    stepperZ.moveTo(stepperZ.currentPosition());
+    currPositionZ = stepperZ.currentPosition();
+    lastCommand = 0;
+}
+
+// Run the stepper motor (non-blocking)
+stepperZ.run();
+stepperS.run();
+stepperB.run();
+}</code></pre>
+        </div>
+        <div class="code-block" style="flex: 1; min-width: 300px;">
+            <div class="code-title">Bluetooth Version</div>
+            <pre><code>/*
+Bluetooth Keyboard Control
+Controls SCARA robotic arm via Bluetooth input
+
+'w' - Move up
+'s' - Move down
+'d' - Base Rotates CW
+'a' - Base Rotates CCW
+'c' - Claw closes
+'o' - Claw opens
+'x' - Servo Rotates CW
+'z' - Servo Rotates CCW
+*/
+
+#include &lt;AccelStepper.h&gt;
+#include &lt;ESP32Servo.h&gt;
+#include &lt;ESP32PWM.h&gt;
+#include &lt;BluetoothSerial.h&gt;
+
+// Check if Bluetooth is available (compile-time check)
+#if !defined(CONFIG_BT_ENABLED) || !defined(CONFIG_BLUEDROID_ENABLED)
+#error "Bluetooth is not enabled! Please run `make menuconfig` to enable it"
+#endif
+
+#if !defined(CONFIG_BT_SPP_ENABLED)
+#error "Serial Bluetooth not available! Please enable it in menuconfig"
+#endif
+
+// Create Bluetooth Serial object
+BluetoothSerial SerialBT;
+
+// Pin Assignments
+#define STEP_PIN_Z 26   // Z-axis step signal
+#define DIR_PIN_Z 25    // Z-axis direction signal
+#define STEP_PIN_S 16
+#define DIR_PIN_S 17
+#define STEP_PIN_B 12   // Base rotation step signal
+#define DIR_PIN_B 14    // Base rotation direction signal
+#define limit_switch_NO 21  // Z-axis limit switch
+
+// Define the z-axis stepper motor
+AccelStepper stepperZ(1, STEP_PIN_Z, DIR_PIN_Z);  // (Type:driver, STEP, DIR)
+AccelStepper stepperS(1, STEP_PIN_S, DIR_PIN_S);  // End-effector stepper
+AccelStepper stepperB(1, STEP_PIN_B, DIR_PIN_B);  // Base rotation stepper
+
+// Movement parameters
+const int moveSpeed = 1000;  // Steps per second when moving
+long currPositionZ = 0;
+long currPositionS = 0;
+long currPositionB = 0;
+char lastCommand = 0;        // Track last command received
+
+Servo myservo;  // create servo object to control a servo
+int pos = 0;    // variable to store the servo position
+int servoPin = 5;
+
+// Check if limit switch is pressed
+bool isLimitSwitchPressed() {
+return digitalRead(limit_switch_NO) == LOW;
+}
+
+void setup() {
+// Initialize Bluetooth Serial with device name
+SerialBT.begin("ESP32_Robot"); // Bluetooth device name (change if desired)
+
+// Optional: Also initialize regular Serial for debugging
+Serial.begin(115200);
+Serial.println("Bluetooth device ready! Pair with 'ESP32_Robot'");
+
+pinMode(STEP_PIN_S, OUTPUT);
+pinMode(DIR_PIN_S, OUTPUT);
+digitalWrite(STEP_PIN_S, LOW);
+digitalWrite(DIR_PIN_S, LOW);
+
+// Configure limit switch
+pinMode(limit_switch_NO, INPUT_PULLUP);
+
+// Configure stepper motor
+stepperZ.setMaxSpeed(500);
+stepperZ.setAcceleration(200);
+stepperZ.setSpeed(0);  // Start stopped
+
+stepperS.setMaxSpeed(800);  // Reduced speed for smoother movement
+stepperS.setAcceleration(200);  // Reduced acceleration for smoother, less jerky movement
+stepperS.setSpeed(0);
+
+stepperB.setMaxSpeed(50);
+stepperB.setAcceleration(10);
+stepperB.setSpeed(0);
+
+// Allow allocation of all timers
+ESP32PWM::allocateTimer(0);
+ESP32PWM::allocateTimer(1);
+ESP32PWM::allocateTimer(2);
+ESP32PWM::allocateTimer(3);
+
+myservo.setPeriodHertz(50);    // standard 50 hz servo
+myservo.attach(servoPin, 1000, 2000); // attaches the servo on servoPin
+
+// Initialize servo to open position (0 degrees)
+pos = 0;
+myservo.write(pos);
+delay(500);  // Give servo time to reach open position
+
+}
+
+void loop() {
+// Check for Bluetooth commands
+if (SerialBT.available()) {
+char command = SerialBT.read();
+
+if (command == 'w') {
+// Move up - check limit switch first, disable 'w' if limit switch is pressed
+if (!isLimitSwitchPressed()) {
+    currPositionZ -= 20;
+    stepperZ.moveTo(currPositionZ);
+    lastCommand = 'w';
+} else {
+    // Limit switch pressed - stop immediately by setting target to current position
+    stepperZ.moveTo(stepperZ.currentPosition());
+    currPositionZ = stepperZ.currentPosition();
+    lastCommand = 0;
+}
+}
+else if (command == 's') {
+currPositionZ += 20;
+// Move down
+stepperZ.moveTo(currPositionZ);  // Negative speed for down
+lastCommand = 's';
+}
+else if (command == 'a') {
+// Base rotate counter-clockwise
+currPositionB -= 20;
+stepperB.moveTo(currPositionB);
+lastCommand = 'a';
+}
+else if (command == 'd') {
+// Base rotate clockwise
+currPositionB += 20;
+stepperB.moveTo(currPositionB);
+lastCommand = 'd';
+}
+else if (command == 'z') {
+// End-effector rotate counter-clockwise (microstepped for smooth movement)
+currPositionS -= 100;  // Reduced from 10 to 2 for microstepping
+stepperS.moveTo(currPositionS);
+lastCommand = 'z';
+}
+else if (command == 'x') {
+// End-effector rotate clockwise (microstepped for smooth movement)
+currPositionS += 100;  // Reduced from 10 to 2 for microstepping
+stepperS.moveTo(currPositionS);
+lastCommand = 'x';
+}
+else if (command == 'o') {
+// Close servo - goes from 0 degrees to 180 degrees
+for (pos = 0; pos <= 180; pos += 3) {
+    myservo.write(pos);    // tell servo to go to position in variable 'pos'
+    delay(5);             // waits 5ms for the servo to reach the position
+}
+}
+else if (command == 'c') {
+// Open servo - goes from 180 degrees to 0 degrees
+for (pos = 180; pos >= 0; pos -= 3) {
+    myservo.write(pos);    // tell servo to go to position in variable 'pos'
+    delay(5);             // waits 5ms for the servo to reach the position
+}
+}
+else if (command == ' ') {
+// Stop (spacebar or any other key stops movement)
+// Immediately stop all steppers and sync positions
+stepperZ.stop();
+stepperS.stop();
+stepperB.stop();
+// Sync position variables with actual positions to prevent any movement
+currPositionZ = stepperZ.currentPosition();
+currPositionS = stepperS.currentPosition();
+currPositionB = stepperB.currentPosition();
+lastCommand = 0;
+}
+}
+else {
+// If no new command, continue with last command
+// This allows continuous movement while key is held
+// Only update target when stepper is close to current target to prevent shaking
+if (lastCommand == 'w') {
+// Check limit switch before continuing up movement
+if (!isLimitSwitchPressed() && abs(stepperZ.distanceToGo()) < 40) {
+    currPositionZ -= 20;
+    stepperZ.moveTo(currPositionZ);
+} else if (isLimitSwitchPressed()) {
+    // Limit switch pressed - stop immediately by setting target to current position
+    stepperZ.moveTo(stepperZ.currentPosition());
+    currPositionZ = stepperZ.currentPosition();
+    lastCommand = 0;
+}
+}
+else if (lastCommand == 's' && abs(stepperZ.distanceToGo()) < 40) {
+currPositionZ += 20;
+stepperZ.moveTo(currPositionZ);
+}
+else if (lastCommand == 'a' && abs(stepperB.distanceToGo()) < 40) {
+currPositionB -= 20;
+stepperB.moveTo(currPositionB);
+}
+else if (lastCommand == 'd' && abs(stepperB.distanceToGo()) < 40) {
+currPositionB += 20;
+stepperB.moveTo(currPositionB);
+}
+else if (lastCommand == 'z' && abs(stepperS.distanceToGo()) < 40) {
+currPositionS -= 100;  // Reduced from 10 to 2 for microstepping
+stepperS.moveTo(currPositionS);
+}
+else if (lastCommand == 'x' && abs(stepperS.distanceToGo()) < 40) {
+currPositionS += 100;  // Reduced from 10 to 2 for microstepping
+stepperS.moveTo(currPositionS);
+}
+}
+
+// Check limit switch and stop z-axis immediately if pressed while moving up
+if (isLimitSwitchPressed() && (lastCommand == 'w' || stepperZ.distanceToGo() < 0)) {
+// Stop immediately by setting target to current position
+stepperZ.moveTo(stepperZ.currentPosition());
+currPositionZ = stepperZ.currentPosition();
+lastCommand = 0;
+}
+
+// Run the stepper motor (non-blocking)
+stepperZ.run();
+stepperS.run();
+stepperB.run();
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+
+    <!-- THANK YOUS -->
+    <section class="hero-section">    
+        <div class="text">
+            <h1>Thank You!</h1>
+            <p>I would like to thank Nathan, Bobby, Kassia, Jess, and Tolu for their support, guidance, and resources throughout this project! You all are amazing, and I couldn't have done this without you!</p>
+    </section>
+
+    <div class="clearfix"></div>s
+</body>
+</html>
