@@ -14,22 +14,16 @@ addrs = [
 
 def coarsen(full_addr):
     '''Given a messy full street address return a clean coarsened one'''
-    cleaned = full_addr.strip()
-    parts = cleaned.split()
-    if not parts:
-        return cleaned
-
-    number = parts[0]
-    street = " ".join(parts[1:])
-
-    if len(number) == 1:
-        coarse_number = "0XX"
+    full_addr = full_addr.strip()
+    full_addr = full_addr.split()
+    if not full_addr:
+        return ""
+    if len(full_addr[0]) == 1:
+        full_addr[0] = "0XX"
     else:
-        coarse_number = number[0] + "XX"
-
-    if street:
-        return coarse_number + " " + street
-    return coarse_number
+        full_addr[0] = full_addr[0][0] + "XX"
+    full_addr = " ".join(full_addr)
+    return full_addr
 
 
 def main():
