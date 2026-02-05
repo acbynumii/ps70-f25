@@ -18,7 +18,7 @@ def coarsen(full_addr):
     full_addr = full_addr.split()
     if not full_addr:
         return ""
-    if len(full_addr[0]) == 1:
+    if len(full_addr[0]) <= 2:
         full_addr[0] = "0XX"
     else:
         full_addr[0] = full_addr[0][0] + "XX"
