@@ -22,8 +22,10 @@ def coarsen(full_addr):
         full_addr[0] = "0XX"
     else:
         full_addr[0] = full_addr[0][0] + "XX"
-    full_addr = " ".join(full_addr)
-    return full_addr
+    full_addr_str = full_addr[0]
+    for part in full_addr[1:]:
+        full_addr_str = full_addr_str + " " + part
+    return full_addr_str
 
 
 def main():
