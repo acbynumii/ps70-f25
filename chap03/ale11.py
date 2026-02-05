@@ -36,6 +36,7 @@ def main():
         r = coarsen(full_addr)
         if r == coarsened_addr:
             print(f'PASSED on test: "{full_addr}"')
+            print(f'\tCoarsened: "{r}"')
         else:
             print(f'FAILED on "{full_addr}", returned:\n\t"{r}"')
 
